@@ -1,14 +1,26 @@
 site_name: CyberSecurity Writeups
 site_url: https://https://lincoln5702.github.io/
+nav:
+ - Introduction: index.md
+ - PrivilegeEscalation: 
+    - WindowsPrivEsc:
+       - Abusing_dangerous_privileges.md
+       - Abusing_vulnerable_software.md
+ - Tools For Privesc: 
+     - Windows: Tools_for_winprivesc.md    
 theme:
     name: material
     features:
-      - navigation.tabs
-      - navigation.sections
-      - toc.integrate
-      - navigation.top
-      - search.suggest
-      - search.highlight
+      - navigation.instant
+      - navitaion.top
+      # - navigation.tabs
+      # - navigation.sections
+      # - navigation.path
+      # - toc.follow
+      # - toc.integrate
+      # - navigation.side
+      # - search.suggest
+      # - search.highlight
       - content.tabs.link
       - content.code.annotation
       - content.code.copy
