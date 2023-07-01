@@ -1,4 +1,5 @@
 site_name: CyberSecurity Writeups
+site_url: https://https://lincoln5702.github.io/
 theme:
     name: material
     features:
