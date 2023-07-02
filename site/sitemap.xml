@@ -2,12 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://https://lincoln5702.github.io/</loc>
-         <lastmod>2023-07-01</lastmod>
+         <lastmod>2023-07-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://https:/lincoln5702.github.io/Tools%20for%20winprivesc/</loc>
-         <lastmod>2023-07-01</lastmod>
+         <loc>https://https:/lincoln5702.github.io/Abusing_dangerous_privileges/</loc>
+         <lastmod>2023-07-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://https:/lincoln5702.github.io/Abusing_vulnerable_software/</loc>
+         <lastmod>2023-07-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://https:/lincoln5702.github.io/Tools_for_winprivesc/</loc>
+         <lastmod>2023-07-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://https:/lincoln5702.github.io/about_me/</loc>
+         <lastmod>2023-07-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
