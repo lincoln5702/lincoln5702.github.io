@@ -2,13 +2,13 @@
     font-family: 'Menlo Regular';
     font-style: normal;
     font-weight: normal;
-    font-size: 200px;
+    
     color: #ebdbb2;;
     src: local('Menlo Regular'), url('fonts/menlo-cufonfonts-webfont/Menlo-Regular.woff') format('woff');
     }
     :root {
         --md-text-font: "Menlo Regular"; 
-         font-size: 23px;
+         font-size: 22px;
       }
       
      
