@@ -16,8 +16,7 @@ nav:
  
 theme:
   name: material
-  nav_style: light
-  custom_dir: overrides
+
   features:
     - navigation.instant
     - navitaion.top
