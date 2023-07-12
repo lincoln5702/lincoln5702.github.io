@@ -20,12 +20,6 @@ The SeBackup and SeRestore privileges allow users to read and write to any file 
 
 Having this power, an attacker can trivially escalate privileges on the system by using many techniques. The one we will look at consists of copying the SAM and SYSTEM registry hives to extract the local Administrator's password hash.
 
-Log in to the target machine via RDP using the following credentials:
-
-**User:** `THMBackup`
-
-**Password:** `CopyMaster555`
-
 This account is part of the "Backup Operators" group, which by default is granted the SeBackup and SeRestore privileges. We will need to open a command prompt using the "Open as administrator" option to use these privileges. We will be asked to input our password again to get an elevated console:
 
 ![Run as admin](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/befb434f15dbd4deee0654f8b6ef6de0.png)  
@@ -121,12 +115,6 @@ nt authority\system
 ## SeTakeOwnership
 
 The SeTakeOwnership privilege allows a user to take ownership of any object on the system, including files and registry keys, opening up many possibilities for an attacker to elevate privileges, as we could, for example, search for a service running as SYSTEM and take ownership of the service's executable. For this task, we will be taking a different route, however.
-
-Log in to the target machine via RDP using the following credentials:
-
-**User:** `THMTakeOwnership`
-
-**Password:** `TheWorldIsMine2022`
 
 To get the SeTakeOwnership privilege, we need to open a command prompt using the "Open as administrator" option. We will be asked to input our password to get an elevated console:
 

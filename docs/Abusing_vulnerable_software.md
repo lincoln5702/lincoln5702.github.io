@@ -2,10 +2,6 @@ Make sure to click the **Start Machine** button before you continue, which wil
 
 ![THM flag](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/07e460b453a5ec5245077b881195ee4e.png)
 
-|   |   |
-|---|---|
-|**Username**|thm-unpriv|
-|**Password**|Password321|
 
   
 
@@ -92,5 +88,3 @@ Global Group memberships     *None
 As a last step, you can run a command prompt as administrator:
 
 ![Run Command Prompt as Pwnd](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/bbd0af143c9a9b31c1acce32fabfdc0f.png)  
-
-	When prompted for credentials, use the `pwnd` account. From the new command prompt, you can retrieve your flag from the Administrator's desktop with the following command `type C:\Users\Administrator\Desktop\flag.txt`.

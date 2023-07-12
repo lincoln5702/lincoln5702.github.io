@@ -2,9 +2,7 @@ site_name: CyberSecurity Writeups
 site_url: https://https://lincoln5702.github.io/
 nav:
   - About Me: about_me.md
-  - Writeups:
-    - index.md 
-    - Abusing_dangerous_privileges.md
+  - Writeups: 
     - PrivilegeEscalation:
       - WindowsPrivEsc: 
          - Abusing_vulnerable_software.md
@@ -12,11 +10,20 @@ nav:
     - Tools For Privesc:
       - Windows: 
          - Tools_for_winprivesc.md
+    - Hack The Box:
+         - busqueda.md
+    - Reconnaissance:
+        - recon.md  
+    - Web Hacking:
+        - SQL lab.md   
+  - CollegeResources:
+    - MajorProject:
+         - apache kafka.md  
     
  
 theme:
   name: material
-
+  font: roboto
   features:
     - navigation.instant
     - navitaion.top
