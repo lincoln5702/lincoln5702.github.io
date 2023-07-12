@@ -15,10 +15,14 @@ nav:
     - Reconnaissance:
         - recon.md  
     - Web Hacking:
-        - SQL lab.md   
+        - SQL lab.md 
+        - methodology.md
+    - Others:
+        - Important note.md   
   - CollegeResources:
     - MajorProject:
-         - apache kafka.md  
+         - apache kafka.md 
+         
     
  
 theme:
