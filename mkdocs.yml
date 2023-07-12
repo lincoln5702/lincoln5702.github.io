@@ -2,23 +2,25 @@ site_name: CyberSecurity Writeups
 site_url: https://https://lincoln5702.github.io/
 nav:
   - About Me: about_me.md
-  - Writeups: 
+  - Notes: 
     - PrivilegeEscalation:
       - WindowsPrivEsc: 
          - Abusing_vulnerable_software.md
          - Abusing_dangerous_privileges.md
+         - Privilege escalation/Windows Privilege Escalation.md
     - Tools For Privesc:
       - Windows: 
          - Tools_for_winprivesc.md
-    - Hack The Box:
-         - busqueda.md
     - Reconnaissance:
         - recon.md  
     - Web Hacking:
         - SQL lab.md 
         - methodology.md
     - Others:
-        - Important note.md   
+        - Important note.md 
+  - Writeups:
+     - Hack The Box:
+         - busqueda.md       
   - CollegeResources:
     - MajorProject:
          - apache kafka.md 
@@ -91,8 +93,16 @@ markdown_extensions:
   - pymdownx.mark
   - attr_list
   - pymdownx.emoji:
+  
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra_css:
   - stylesheets/extra.css
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/lincoln5702
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/lincoln-basnet-010426206/
+

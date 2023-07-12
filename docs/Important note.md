@@ -17,21 +17,24 @@ https://portswigger.net/web-security/learning-path
 
 ![](attachments/web%20security.png)
 
-## Subdomain takeover
-- https://0xpatrik.com/subdomain-takeover-basics/
-- https://0xpatrik.com/subdomain-takeover-ns/
-- https://nitter.snopyta.org/i/status/1416770928092975105
-- https://github.com/tripmine253/pentest-book/wiki/subdomain-takeover
-- https://github.com/EdOverflow/can-i-take-over-xyz
-- https://github.com/indianajson/can-i-take-over-dns
+##### Subdomain takeover
+- <https://0xpatrik.com/subdomain-takeover-basics/>
+- <https://0xpatrik.com/subdomain-takeover-ns/>
+- <https://nitter.snopyta.org/i/status/1416770928092975105>
+- <https://github.com/tripmine253/pentest-book/wiki/subdomain-takeover>
+- <https://github.com/EdOverflow/can-i-take-over-xyz>
+- <https://github.com/indianajson/can-i-take-over-dns>
 
 
-pcampus content:
+##### pcampus content:
 
-https://github.com/PCampus-InfoSec-Enthusiasts/learning-resources
+<https://github.com/PCampus-InfoSec-Enthusiasts/learning-resources>
 
-thm manparne room :
+##### some tryhackme rooms to try
+
 Linux Agency room
+
+##### others
 
 nmap -p- --min-rate=10000
 

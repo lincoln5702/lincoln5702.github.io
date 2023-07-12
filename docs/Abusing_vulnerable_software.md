@@ -1,9 +1,3 @@
-Make sure to click the **Start Machine** button before you continue, which will deploy the target machine in split-view. If you prefer connecting to the machine via RDP, you can use the following credentials:
-
-![THM flag](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/07e460b453a5ec5245077b881195ee4e.png)
-
-
-  
 
 ## Unpatched Software
 
