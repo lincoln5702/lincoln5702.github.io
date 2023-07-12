@@ -1,1 +1,2 @@
-# lincoln5702.github.io
+## My Personal Website 
+# contains writeups , notes resourses 
