@@ -20,7 +20,9 @@ nav:
         - Important note.md 
   - Writeups:
      - Hack The Box:
-         - busqueda.md       
+         - busqueda.md 
+     - Tryhackme:
+         - Gaming Server CTF.md          
   - CollegeResources:
     - MajorProject:
          - apache kafka.md 
