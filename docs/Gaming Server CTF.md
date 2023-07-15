@@ -68,7 +68,8 @@ cat user.txt returns **a5c2ff8b9c2e3d4fe9d4ff2f1a5a6e7e**
 
 running id shows user running lxd which lets escalate our privilege
 I don't know much about lxd  so I took help of google and got this awesome 
-page [lxd_privesc](https://vk9-sec.com/lxd-privilege-escalation/#:~:text=lxd%20%E2%80%93%20privilege%20escalation%201%201.%20In%20this,execute%20bash%20within%20the%20instance%20...%20More%20items)
+page [lxd_privesc](https://vk9-sec.com/lxd-privilege-escalation/#:~:text=lxd%20%E2%80%93%20privilege%20escalation%201%201.%20In%20this,execute%20bash%20within%20the%20instance%20...%20More%20items) and [lxd-another-technique](https://www.hackingarticles.in/lxd-privilege-escalation/)
+
 
 the sequence of commands that i ran with the help of website are:
 
@@ -105,5 +106,7 @@ lxc exec test bash
 cd /mnt/root
 ````
 
-which gives me rootflag.txt
+which gives me rootflag.txt ---> **2e337b8c9f3aff0c2b3e8d4e6a7c88fc**
+
+![](attachments/Gaming%20Server%20CTF%20root.png)
 
