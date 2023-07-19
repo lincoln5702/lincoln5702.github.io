@@ -22,7 +22,12 @@ nav:
      - Hack The Box:
          - busqueda.md 
      - Tryhackme:
-         - Gaming Server CTF.md          
+         - Gaming Server CTF.md 
+         - Root me.md
+         - simple ctf.md
+         - Overlayfs.md
+         - lazyadmin.md
+         - bountyhacker.md        
   - CollegeResources:
     - MajorProject:
          - apache kafka.md 
