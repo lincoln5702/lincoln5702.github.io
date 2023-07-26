@@ -27,7 +27,8 @@ nav:
          - simple ctf.md
          - Overlayfs.md
          - lazyadmin.md
-         - bountyhacker.md        
+         - bountyhacker.md   
+         - Blog.md     
   - CollegeResources:
     - MajorProject:
          - apache kafka.md 
