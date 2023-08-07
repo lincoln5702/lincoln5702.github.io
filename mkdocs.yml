@@ -32,6 +32,7 @@ nav:
   - CollegeResources:
     - MajorProject:
          - apache kafka.md 
+         - openHIE.md
          
     
  
