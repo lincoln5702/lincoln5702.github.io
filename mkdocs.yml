@@ -3,36 +3,38 @@ site_url: https://https://lincoln5702.github.io/
 nav:
   - About Me: about_me.md
   - Notes: 
-    - PrivilegeEscalation:
-      - WindowsPrivEsc: 
-         - Abusing_vulnerable_software.md
-         - Abusing_dangerous_privileges.md
-         - Privilege escalation/Windows Privilege Escalation.md
-    - Tools For Privesc:
-      - Windows: 
-         - Tools_for_winprivesc.md
-    - Reconnaissance:
-        - recon.md  
+    - PrivilegeEscalation: 
+         - notes/privilegeescalation/Abusing_vulnerable_software.md
+         - notes/privilegeescalation/Abusing_dangerous_privileges.md
+         - notes/privilegeescalation/Windows Privilege Escalation.md
+         - notes/privilegeescalation/Linux Privilege escalation.md
+         - notes/privilegeescalation/Tools_for_winprivesc.md
+         - notes/privilegeescalation/Abusing service misconfigurations.md 
     - Web Hacking:
-        - SQL lab.md 
-        - methodology.md
+        - notes/WebHacking/recon.md
+        - notes/WebHacking/methodology.md
+        - notes/WebHacking/SQL lab.md
+
     - Others:
         - Important note.md 
   - Writeups:
-     - Hack The Box:
-         - busqueda.md 
      - Tryhackme:
-         - Gaming Server CTF.md 
-         - Root me.md
-         - simple ctf.md
-         - Overlayfs.md
-         - lazyadmin.md
-         - bountyhacker.md   
-         - Blog.md     
+         - tryhackme/Gaming Server CTF.md 
+         - tryhackme/Root me.md
+         - tryhackme/simple ctf.md
+         - tryhackme/Overlayfs.md
+         - tryhackme/lazyadmin.md
+         - tryhackme/bountyhacker.md   
+         - tryhackme/Blog.md 
+         - tryhackme/IDE.md
+         - tryhackme/relevant.md
+         - tryhackme/overpass.md   
+     - HacktheBox:
+         - hackthebox/busqueda.md
   - CollegeResources:
     - MajorProject:
-         - apache kafka.md 
-         - openHIE.md
+         - majorproject/apache kafka.md 
+         - majorproject/openHIE.md
          
     
  
