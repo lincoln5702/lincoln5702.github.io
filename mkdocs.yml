@@ -14,6 +14,8 @@ nav:
         - notes/WebHacking/recon.md
         - notes/WebHacking/methodology.md
         - notes/WebHacking/SQL lab.md
+    - tools:
+        - notes/tools/Nmap.md    
 
     - Others:
         - Important note.md 
@@ -61,17 +63,17 @@ theme:
     - content.code.copy
   language: en
   palette:
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+  
+  # Palette toggle for light mode
+    - scheme: default
       toggle:
-        icon: material/brightness-7
+        icon: material/brightness-7 
+
+
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode

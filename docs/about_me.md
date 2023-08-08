@@ -2,20 +2,28 @@
 hide:
   - navigation
   - toc
+  - pageTitle
 ---
-Hello! I'm Lincoln Basnet, an electronics engineering student at Pulchowk Campus. I have a keen interest in various fields, including cybersecurity, networking, scripting, and more. In this document, I'll share a bit more about my passions and experiences in these areas.
+<style>
+  .md-typeset h1,
+  .md-content__button {
+    display: none;
+  }
+</style>
+Hello! I'm Lincoln Basnet :v:, an electronics engineering student at Pulchowk Campus. I have a keen interest in various fields, including cybersecurity, networking, scripting, and more. In this document, I'll share a bit more about my passions and experiences in these areas.
 
-## Cybersecurity
+## <span style="color:#9f00ff">Cybersecurity</span>
 
 Cybersecurity has always fascinated me. I enjoy exploring ways to protect computer systems, networks, and data from unauthorized access and malicious activities. Some of the topics I've studied and worked on in the field of cybersecurity include:
 
-- Ethical hacking and penetration testing
-- Network security
-- Web application security
-- Cryptography
-- Incident response
+- Ethical hacking and penetration testing 
+-  Network security 
+-  Web application security
+-  Cryptography
+-  Incident response
 
-## Networking
+
+## <span style="color:#9f00ff">Networking</span>
 
 Networking is another area that intrigues me. Understanding how computers and devices communicate and connect with each other is essential in today's interconnected world. Here are some networking topics I've explored:
 
@@ -25,7 +33,7 @@ Networking is another area that intrigues me. Understanding how computers and de
 - Wireless networking
 - Network troubleshooting
 
-## Scripting and Automation
+## <span style="color:#9f00ff">Scripting and Automation</span>
 
 Scripting and automation play a crucial role in simplifying tasks and improving efficiency. I enjoy writing scripts to automate repetitive tasks and streamline workflows. Some scripting languages I've worked with include:
 
@@ -33,7 +41,7 @@ Scripting and automation play a crucial role in simplifying tasks and improving 
 - Bash scripting
 - PowerShell
 
-## Hobbies
+## <span style="color:#9f00ff">Hobbies</span>
 
 In addition to my academic pursuits, I have a passion for sports. Playing sports like basketball and football is one of my favorite hobbies. Engaging in sports not only keeps me physically active but also teaches me valuable lessons about teamwork, discipline, and perseverance.
 
