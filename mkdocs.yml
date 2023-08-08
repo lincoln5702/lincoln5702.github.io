@@ -52,6 +52,7 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.expand
+    - navigation.footer
     # - navigation.path
     #- toc.follow
     #- toc.integrate
@@ -113,6 +114,7 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
 extra:
+
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/lincoln5702

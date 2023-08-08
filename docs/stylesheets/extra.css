@@ -21,6 +21,8 @@
         --md-default-bg-color: #f7fafa;
         --md-primary-fg-color:        #16202c;
         --md-primary-bg-color:         #6a97df;
+        --md-footer-bg-color: #141d2b;
+        --md-footer-fg-color: #d25a5a;
       }
       
       /* Dark mode */
@@ -29,6 +31,8 @@
         
         --md-primary-fg-color:        #141d2b;
         --md-primary-bg-color:         #6a97df;
+        --md-footer-bg-color: #141d2b;
+        --md-footer-fg-color: #d25a5a;
       }
 
       .md-tabs__link:hover {
@@ -42,3 +46,8 @@
          .md-tabs__item:nth-child(0) { 
             display: none;
           }
+          .md-footer-meta {
+            
+            background-color: #141d2b;
+          }
+        
