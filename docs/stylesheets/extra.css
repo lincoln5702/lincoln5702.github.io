@@ -1,11 +1,19 @@
-@font-face {
-    font-family: 'Menlo Regular';
+/* @font-face {
+    font-family: 'Zeitung Micro Pro';
     font-style: normal;
     font-weight: normal;
     
-    color: #ebdbb2;;
-    src: local('Menlo Regular'), url('fonts/menlo-cufonfonts-webfont/Menlo-Regular.woff') format('woff');
-    }
+    color: #ebdbb2;
+    src: local('Zeitung Micro Pro'), url('fonts/Zeitung-Micro-Pro/Zeitung-Micro-Pro.woff') format('woff');
+    } */
+    @font-face {
+      font-family: 'Menlo Regular';
+      font-style: normal;
+      font-weight: normal;
+      
+      color: #ebdbb2;
+      src: local('Menlo Regular'), url('fonts/menlo-cufonfonts-webfont/Menlo-Regular.woff') format('woff');
+      }
     :root {
         --md-primary-fg-color:        #141d2b;
         --md-primary-bg-color:         #6a97df;
@@ -49,5 +57,25 @@
           .md-footer-meta {
             
             background-color: #141d2b;
+            
           }
+
+          .md-header {
+            height: 3.0rem;
+        }
         
+        .md-header-nav {
+            padding: .2rem;
+        }
+        
+        /* @media only screen and (max-width:59.9375em) {
+            .md-search__input {
+                height: 3.0rem;
+            }
+            .md-search__icon[for="__search"] {
+                top: .8rem;
+            }
+            .md-search__icon[type="reset"] {
+                top: .8rem;
+            }
+        } */
