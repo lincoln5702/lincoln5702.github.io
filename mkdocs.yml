@@ -14,6 +14,8 @@ nav:
         - notes/WebHacking/recon.md
         - notes/WebHacking/methodology.md
         - notes/WebHacking/SQL lab.md
+    - Cloud:
+        - notes/cloud/CloudBasics.md  
     - tools:
         - notes/tools/Nmap.md    
 
