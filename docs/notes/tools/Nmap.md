@@ -1,8 +1,6 @@
 ### <span style="color:#9FEF00">_NMAP scripting engine_</span>
 
 
-to learn about the nmap scripting engine follow this link ( [https://nmap.org/book/nse-usage.html](https://nmap.org/book/nse-usage.html))
-
 The **N**map **S**cripting **E**ngine (NSE) is an incredibly powerful addition to Nmap, extending its functionality quite considerably. NSE Scripts are written in the _Lua_ programming language, and can be used to do a variety of things: from scanning for vulnerabilities, to automating exploits for them. The NSE is particularly useful for reconnaissance, however, it is well worth bearing in mind how extensive the script library is.
 
 

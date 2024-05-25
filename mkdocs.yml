@@ -6,7 +6,6 @@ nav:
     - Web Hacking:
         - notes/WebHacking/recon.md
         - notes/WebHacking/methodology.md
-        - notes/WebHacking/SQL lab.md
     - Cloud:
         - notes/cloud/CloudBasics.md  
     - tools:
