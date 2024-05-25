@@ -10,7 +10,7 @@ hide:
     display: none;
   }
 </style>
-Hello! I'm Lincoln Basnet :v:, an electronics engineering student at Pulchowk Campus. I have a keen interest in various fields, including cybersecurity, networking, Linux and more. In this document, I'll share a bit more about my passions and experiences in these areas.
+Hello! I'm Lincoln Basnet an electronics engineering graduate of Pulchowk Campus. I have a keen interest in various fields, including cybersecurity, networking, Linux and more. In this document, I'll share a bit more about my passions and experiences in these areas.
 
 ## <span style="color:#9f00ff">Cybersecurity</span>
 
@@ -37,5 +37,5 @@ Networking is another area that intrigues me. Understanding how computers and de
 
 In addition to my academic pursuits, I have a passion for sports. Playing and watching sports like basketball and football is one of my favorite hobbies.
 
-Feel free to reach out if you'd like to discuss any of these topics further or collaborate on projects related to cybersecurity, networking, scripting, or any other field of interest!. The links for my social media handles are present on the footer of this website.
+Feel free to reach out if you'd like to discuss any of these topics further or collaborate on projects related to cybersecurity, networking, scripting, or any other field of interest!. The links for my social handles are present on the footer of this website.
 

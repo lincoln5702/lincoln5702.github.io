@@ -1,5 +1,5 @@
 site_name: CyberSecurity Writeups
-site_url: https://https://lincoln5702.github.io/
+site_url: https://lincoln5702.github.io/
 nav:
   - About Me: about_me.md
   - Notes: 
@@ -36,10 +36,11 @@ nav:
  
 theme:
   name: material
-  font: roboto
+  font: 
+    text: roboto
   features:
     - navigation.instant
-    - navitaion.top
+    - navigation.top
     - navigation.path
     - navigation.indexes
     - navigation.top
@@ -102,11 +103,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.mark
   - attr_list
-  - pymdownx.emoji:
-  
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-
 extra_css:
   - stylesheets/extra.css
 extra:

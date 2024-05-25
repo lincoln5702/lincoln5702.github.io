@@ -108,5 +108,4 @@ cd /mnt/root
 
 which gives me rootflag.txt ---> **2e337b8c9f3aff0c2b3e8d4e6a7c88fc**
 
-![](attachments/Gaming%20Server%20CTF%20root.png)
 
