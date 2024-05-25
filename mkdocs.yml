@@ -3,13 +3,6 @@ site_url: https://https://lincoln5702.github.io/
 nav:
   - About Me: about_me.md
   - Notes: 
-    - PrivilegeEscalation: 
-         - notes/privilegeescalation/Abusing_vulnerable_software.md
-         - notes/privilegeescalation/Abusing_dangerous_privileges.md
-         - notes/privilegeescalation/Windows Privilege Escalation.md
-         - notes/privilegeescalation/Linux Privilege escalation.md
-         - notes/privilegeescalation/Tools_for_winprivesc.md
-         - notes/privilegeescalation/Abusing service misconfigurations.md 
     - Web Hacking:
         - notes/WebHacking/recon.md
         - notes/WebHacking/methodology.md
