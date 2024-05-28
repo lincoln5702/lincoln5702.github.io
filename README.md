@@ -1,2 +1,1 @@
-# My Personal Website 
-## contains writeups , notes resources 
+# My Personal Website
