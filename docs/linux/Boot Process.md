@@ -29,8 +29,10 @@ The boot process initiates with us clicking the power button which is followed b
 
 The GRUB bootloader loads the compressed kernel image vimlinuz file which is stored on /boot directory into the RAM. The kernel takes over after this and starts the systemd which is process with PID of 1 which is the parent of all the process in a linux system. Systemd performs all the initialization task like setting machine name and initializing network and more. Formerly Sysvinit or init was used which has been replaced by modern Systemd. Before runlevels was used to identify how the OS is to be used. for example like in single user mode, multi user or graphical mode. Now it is defined in terms of targets.
 example:
-- runlevel 0 -> poweroff.target
-- runlevel 3 -> multiuser.target
-- runlevel 5 -> graphical.targe
+
+* runlevel 0 -> poweroff.target
+* runlevel 3 -> multiuser.target
+* runlevel 5 -> graphical.target
+
 I skipped some runlevels. After the runlevel scripts or target scripts is run and if everything goes fine we are prompted with login screen
 
