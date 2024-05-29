@@ -3,6 +3,9 @@ site_url: https://lincoln5702.github.io
 nav:
   - About Me: about_me.md
   - Notes: 
+    - Linux:
+        - linux/Booting Process.md
+        - linux/Inode.md
     - Web Hacking:
         - notes/WebHacking/recon.md
         - notes/WebHacking/methodology.md

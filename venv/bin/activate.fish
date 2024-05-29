@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/pinkutimalsena/Desktop/lincoln5702.github.io/venv"
+set -gx VIRTUAL_ENV "/Users/pinkutimalsena/Documents/mainobsidian/lincoln5702.github.io/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
