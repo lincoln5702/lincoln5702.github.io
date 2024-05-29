@@ -4,7 +4,7 @@ nav:
   - About Me: about_me.md
   - Notes: 
     - Linux:
-        - linux/Booting Process.md
+        - linux/Boot Process.md
         - linux/Inode.md
     - Web Hacking:
         - notes/WebHacking/recon.md

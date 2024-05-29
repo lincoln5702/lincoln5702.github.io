@@ -1,13 +1,13 @@
-Each partitions on a Filesystem has an i-node table which contains information about the files and directories. In the previous 'booting process of Linux' document I briefly mentioned about the partitions and it's constituents. I am only going to discuss about the super block here. One of the function of a super block is  storing the size of the i-node table. The super block also contains the location of the inode for / (root ) directory.
+Each partitions on a Filesystem has an i-node table which contains information about the files and directories. In the previous 'boot process of Linux' document I briefly mentioned about the partitions and it's constituents. I am only going to discuss about the super block here. One of the function of a super block is  storing the size of the i-node table. The super block also contains the location of the inode for / (root) directory.
 An inode table consists of the following information:
-- File type (directory, file, symbolic link)
-- Owner (also UID of the file)
-- Group (also GID of the file)
-- Access permissions for owner, group and others
-- Timestamps (time of last access)
-- Number of hardlinks to a file
-- Size of file in bytes
-- pointers to the data blocks of the file
+* File type (directory, file, symbolic link)
+* Owner (also UID of the file)
+* Group (also GID of the file)
+* Access permissions for owner, group and others
+* Timestamps (time of last access)
+* Number of hardlinks to a file
+* Size of file in bytes
+* pointers to the data blocks of the file
 ![](attachments/Inode_one.png)
 ### In-depth Understanding 
 I will take above figure as a reference to analyze inode in depth. Here we are looking at the inode entry of /etc/passwd file. This file stores the user's login information such as user's name, gid, uid, login shell. To reach passwd file / (root) needs to be accessed and it has it's own separate inode entry. / is determined from the super block itself. The inode information for the / such as permission, type, uid and gid is used by the underlying C programming to determine if we can access it. If so / which is a directory in itself has the inode pointer to the /etc (7 here). Now the process is repeated for /etc which has the passwd file and it's  pointer (6422 here). Using the pointer of passwd /etc/passwd file is accessed.

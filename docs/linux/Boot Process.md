@@ -1,4 +1,4 @@
-To understand the booting process of linux we first should be familiar with some hardware components that constitute a PC. Let's  dive deep into the structure of disk drive.
+To understand the boot process of linux we first should be familiar with some hardware components that constitute a PC. Let's  dive deep into the structure of disk drive.
 #### Hard Disk Drive
  formerly, disk and drive were two different components. Disk is where the data is stored whereas drive is a part that moves or directs the seeker or pointer to the specific sector.
 
