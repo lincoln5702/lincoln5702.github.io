@@ -10,7 +10,7 @@ hide:
     display: none;
   }
 </style>
-Hello! I'm Lincoln Basnet an electronics engineering graduate of Pulchowk Campus. I have a keen interest in various fields, including cybersecurity, networking, Linux and more. In this document, I'll share a bit more about my passions and experiences in these areas.
+Hello! I'm Lincoln Basnet an electronics engineering graduate of Pulchowk Campus. I have a keen interest in various fields, including IT support, networking, Linux and more. In this document, I'll share a bit more about my passions and experiences in these areas.
 
 ## <span style="color:#9f00ff">Cybersecurity</span>
 
