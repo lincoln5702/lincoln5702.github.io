@@ -1,58 +1,97 @@
-Each partitions on a Filesystem has an i-node table which contains information about the files and directories. In the previous 'boot process of Linux' document I briefly mentioned about the partitions and it's constituents. I am only going to discuss about the super block here. One of the function of a super block is  storing the size of the i-node table. The super block also contains the location of the inode for / (root) directory.
-An inode table consists of the following information:
+# Inode in Linux
 
-* File type (directory, file, symbolic link)
-* Owner (also UID of the file)
-* Group (also GID of the file)
-* Access permissions for owner, group and others
-* Timestamps (time of last access)
-* Number of hardlinks to a file
-* Size of file in bytes
-* pointers to the data blocks of the file
+Each partition in a filesystem contains an **inode table**, which stores information about files and directories. In the previous *Boot Process of Linux* document, I briefly mentioned partitions and their components. Here, we will focus more deeply on **inodes** and related concepts.
+
+One of the functions of a **superblock** is to store the size of the inode table. The superblock also contains the location of the inode for the root (`/`) directory.
+
+An **inode table** typically contains the following information:
+
+- File type (directory, file, symbolic link)  
+- Owner (user ID / UID)  
+- Group (group ID / GID)  
+- Access permissions (owner, group, others)  
+- Timestamps (last access, modification, etc.)  
+- Number of hard links to the file  
+- File size in bytes  
+- Pointers to the data blocks of the file  
 
 ![](attachments/Inode_one.png)
-### In-depth Understanding 
-I will take above figure as a reference to analyze inode in depth. Here we are looking at the inode entry of /etc/passwd file. This file stores the user's login information such as user's name, gid, uid, login shell. To reach passwd file / (root) needs to be accessed and it has it's own separate inode entry. / is determined from the super block itself. The inode information for the / such as permission, type, uid and gid is used by the underlying C programming to determine if we can access it. If so / which is a directory in itself has the inode pointer to the /etc (7 here). Now the process is repeated for /etc which has the passwd file and it's  pointer (6422 here). Using the pointer of passwd /etc/passwd file is accessed.
 
-**Note: An inode does not store name of directories and files.** 
+---
 
-### Understanding Of Directory File
-Directories are special files that are used to create and hold access paths to the files in the file system. It consists of the directory name, inode, length of the directory entry in bytes. Above figure shows the two directory file /etc and /.
-[Link to the reference](https://tldp.org/LDP/tlk/fs/filesystem.html#tth_sEc9.1.4)
+### In-depth Understanding of Inodes
+Let’s take the above figure as an example to analyze inodes in depth. Here, we are looking at the inode entry of the `/etc/passwd` file. This file stores user login information, such as username, UID, GID, and login shell.
 
+To reach `/etc/passwd`, the root directory (`/`) must be accessed first. The root directory has its own inode entry, determined from the superblock. The inode entry for `/` stores its permissions, type, UID, and GID. Using this information, the system determines whether access is allowed.  
 
-### Hard Link
-Each directories and files on a Linux system has a filename. The directory name is stored in the directory file which also has the inode of that directory. Inode does not store the name of directories and files. This results to a useful consequence that we can create multiple name in same or in different directories labeled as link or hard link in this case. The hardlink points to the same inode entry. Let's say I create a hard link of file labeled foo which is bar. I will get back to the creation of hard link in terminal later. Now the files foo and bar point to the same inode entry. If one of the files is removed other still continue to exist and the link count increases by one. 
-Hardlink has several limitations:
-- cannot be created on directory (causes circular links)
-- is unique to a single file system since the inode is only unique to a single filesystem.
+From there, `/` (which is a directory) contains a pointer to `/etc` (inode 7 in the figure). `/etc` in turn contains a pointer to `passwd` (inode 6422). Finally, using the pointer for `passwd`, the system locates the `/etc/passwd` file.
+
+**Important:** An inode does **not** store the names of directories or files.  
+
+---
+
+### Understanding Directory Files
+Directories are special files that act as containers, holding access paths to other files in the filesystem. A directory entry typically contains:  
+
+- The directory name  
+- The inode number  
+- The length of the directory entry (in bytes)  
+
+The figure above shows directory entries for `/etc` and `/`.  
+
+[Reference link](https://tldp.org/LDP/tlk/fs/filesystem.html#tth_sEc9.1.4)
+
+---
+
+### Hard Links
+Each file or directory in Linux has a name stored in the directory entry, along with its inode number. Since inodes do not store file names, we can create multiple names (links) for the same inode. These are known as **hard links**.
+
+A hard link points directly to the same inode entry. For example, if we create a hard link named `bar` for a file named `foo`, both `foo` and `bar` will point to the same inode. If one file is deleted, the other continues to exist because the inode still has references. The **link count** increases when hard links are created.
+
+**Limitations of hard links:**
+- Cannot be created for directories (to avoid circular references).  
+- Work only within a single filesystem, since inode numbers are unique only within that filesystem.  
+
 ![](attachments/Inode_2.png)
 
-### In-depth Understanding using I-node table
-In the figure above we have a file named this. We now create the hardlink of the file which is labeled that. Now as you can see it both points to the same inode pointer 61 which is the actual location of the file data.
+#### In-depth Example with an Inode Table
+In the figure above, we have a file named `this`. A hard link is created with the name `that`. Both `this` and `that` point to the same inode (61), which points to the file’s actual data blocks.
 
-### Symbolic link Or Soft Link
-Symbolic link does not create direct link to the inode table. Instead Symbolic link uses the filename to create the link 
+---
+
+### Symbolic (Soft) Links
+A **symbolic link** (or soft link) works differently. Instead of pointing to an inode directly, a symbolic link stores the **name of the target file**.
+
 ![](Inode_3.png)
-Let's break down the above figure into bits. We first create a symbolic link to the file /home/kiran/other which points to inode pointer 309 which points to the data /home/erena/this. Here "other" is a symbolic link to the name "this". Here link count does not increase unlike hard link where link count increases. Also symbolic link solves the limitations of hard link. Symbolic link can be created on directory and also on multiple filesystem.
+
+Breaking down the figure:  
+We create a symbolic link called `other`, pointing to `/home/kiran/other`. This path resolves to inode 309, which then points to `/home/erena/this`. Here, `other` is a symbolic link to the name `this`.  
+
+Key differences compared to hard links:
+- The **link count does not increase** when creating a symbolic link.  
+- Symbolic links overcome the limitations of hard links:  
+  - They can be created for directories.  
+  - They can span multiple filesystems.  
+
+---
 
 ### Where Are They Used?
-Hard links can be used during backup and recovery process. Creating multiple links to the sensitive file can prevent accidental deletion of file. It is also used for efficient storage where multiple file points to the same data saving disk space.
+- **Hard links**: Useful for backup and recovery. By creating multiple links to important files, accidental deletion can be avoided. They are also space-efficient, since multiple filenames can point to the same data blocks.  
+- **Soft links**: Commonly used as shortcuts to files or directories. They can also reference files across different filesystems.  
 
-On the other hand soft links can be used to create a shortcut to a file. It can also be used for cross filesystem referencing since inode is not used.
+---
+
+### Creating Links
+The `ln` command is used to create both hard and soft links.  
 
 
-
-### Creating  Links
-ln command is used to create both hard and soft links.
-
-##### creating hard link
-```
+### Creating a hard link
+````
 ln /path/to/original/file /path/to/hardlink
 
-```
+````
 
-##### creating soft link
-```
+### Creating a soft (symbolic) link
+````
 ln -s /path/to/original/file /path/to/softlink
-```
+````

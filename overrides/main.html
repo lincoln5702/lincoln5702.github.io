@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% if page and page.is_homepage %}
+  <style>
+    /* Hide primary & secondary sidebars, top tabs, page title & floating 'edit' button on the homepage only */
+    .md-sidebar--primary, .md-sidebar--secondary, .md-tabs,
+    .md-content__button, .md-typeset h1 { display: none !important; }
+    /* Pull content up when tabs/sidebars are gone */
+    .md-main__inner { margin-top: 0; }
+  </style>
+  {% endif %}
+{% endblock %}

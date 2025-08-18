@@ -1,38 +1,66 @@
-To understand the boot process of linux we first should be familiar with some hardware components that constitute a PC. Let's  dive deep into the structure of disk drive.
+# Linux Boot Process
+
+To truly understand the Linux boot process, we first need to be familiar with the hardware components that make up a PC. Let’s start by exploring the structure of a hard disk drive (HDD).
+
 #### Hard Disk Drive
- formerly, disk and drive were two different components. Disk is where the data is stored whereas drive is a part that moves or directs the seeker or pointer to the specific sector.
+In the past, the terms *disk* and *drive* referred to separate components. The *disk* is where data is stored, while the *drive* is the mechanism that moves the read/write head to the correct sector.
 
 ![](attachments/linux_one.png)
-The arm contains the read/write head which writes the data in block on the sector. The circular component is platter that rotates at high speed and each platter is fitted with each arm. To understand where the data is actually stored we need to understand the concept of track and sectors.
-The concentric rings on the platters are called tracks and each tracks are further divided into sectors where the actual data is stored. Data is stored in block of size 512 bytes. The first sector on track 0 is where the Master Boot Record (MBR) is stored on MBR Based system. The newer system with more advanced features is  GUID Partition Table (GUID). I will use the MBR to explain the boot process in this section. However, I will explain the GPT later.
+
+The arm of the drive contains the read/write head, which writes data in blocks onto specific sectors. The circular components are called *platters*, which spin at high speeds. Each platter has its own read/write arm. To better understand how data is stored, we need to examine *tracks* and *sectors*.
+
+The concentric rings on a platter are called *tracks*. Each track is divided into smaller units known as *sectors*, where the actual data resides. Data is stored in blocks of 512 bytes. On MBR-based systems, the first sector of track 0 stores the **Master Boot Record (MBR)**. Newer systems use the more advanced **GUID Partition Table (GPT)**. In this section, we’ll focus on MBR to explain the boot process, and later discuss GPT.
+
 ![](attachments/Linux_two.png)
 
-### Reading And Writing Information To The Disk
-Writing information to the disk takes significant amount of time. It is due to the fact that the disk head or the arm has to move to the appropriate tracks and sectors to carry out the read and write operation. The seek time is the time taken by the the disk head to seek the appropriate track and the transfer time is the time taken to transfer the data blocks. On top of that there is also rotational latency which is time taken by platter to rotate.
+### Reading and Writing Information to the Disk
+Writing data to a disk is a time-consuming process because the disk arm must physically move to the appropriate track and sector. There are three important time factors involved:
 
-### How does Linux Treat The Disk
-Typically there are two types of devices in Linux System. They are character devices and Block Devices. The character devices can input one character at a time. For example: Mouse, Keyboard, terminal. Block devices store the data in blocks. For example: hard disk. These device files are stored on the /dev directory. Furthermore each partition of the disk are also stored as separate file on /dev directory. Each device has their own device driver which is facilitated by the Linux Kernel through API. The System Calls powered  by the device drivers are open(), close(), read(), write(), ioctl(), mmap(). Each device has an identifier called Major and Minor ID number which is used by the kernel to look up the appropriate device driver.
+- **Seek time** – the time it takes for the disk head to reach the correct track.  
+- **Transfer time** – the time it takes to transfer a block of data.  
+- **Rotational latency** – the delay caused by waiting for the platter to rotate to the correct position.  
 
-### Disk Partition
-Disk partition is a logical division of the hard disk where the actual filesystem reside. MBR and GPT system has it's own specification on how many partitions are supported. A disk partition may consist of filesystem, swap area and data area.
+### How Linux Handles the Disk
+Linux categorizes devices into two main types: **character devices** and **block devices**.
+
+- *Character devices* handle data one character at a time (e.g., mouse, keyboard, terminal).  
+- *Block devices* store and transfer data in blocks (e.g., hard disk drives).  
+
+All device files are stored in the `/dev` directory. Each disk partition is also represented as a separate file under `/dev`. Every device requires a **device driver**, which communicates with the Linux kernel through system calls such as `open()`, `close()`, `read()`, `write()`, `ioctl()`, and `mmap()`. Each device is uniquely identified by **major** and **minor** numbers, which the kernel uses to locate the correct driver.
+
+### Disk Partitioning
+A disk partition is a logical division of a hard disk where filesystems, swap areas, and data regions reside. MBR and GPT define how many partitions can be created and how they are structured.
 
 ### File System
-File system is an organized collection of directories and files. There are different file systems available. example include microsoft's FAT and NTFS, journaling filesystems
--> BTRFS, XFS. 
-![](attachments/Linux_three.png)
-As we can see a disk is divided into multiple partitions. Each partition can hold a filesystem. File system consist of boot block , super block, i-node table and the data block. A boot block stores the boot code and  is present on all the partitions although the partition is not bootable. i-node is the most important element. To clarify, when we double click on the GUI based directory on Linux system. It uses the i-node entry to identify if we are authorized to and also expands into the files present on the directory. Each partition holds it's own i-node entry. Super Block contains information such as size of i-node table, size of logical blocks and size of data blocks in a file system. The data blocks is where the actual block of data is stored.
+A **file system** is an organized collection of files and directories. Examples include Microsoft’s FAT and NTFS, and Linux journaling file systems such as Btrfs and XFS.
 
-### Combining Everything Now
-The boot process initiates with us clicking the power button which is followed by the BIOS (Basic input output system) which is burned in  the ROM and the PC is hardwired to load the BIOS which further runs the Power On Self Test (POST). It does a hardware checking to identify the flaws and the I/0 connectivity on the system. BIOS then loads the MBR from the disk( I have already explained where MBR is stored). MBR consists of disk signature, partition table and the master boot code. The disk signature identifies which disk is bootable out of possible multiple disks on the Linux system. Partition table identifies how partition is laid out on disk. The master boot code works independently to load the bootloader on to the memory. After the identification of valid bootable disk the boot code executes the task of loading the bootloader -> GRUB2 into the  memory.
+![](attachments/Linux_three.png)
+
+A disk is divided into multiple partitions, and each partition can hold its own filesystem. A filesystem typically consists of:
+
+- **Boot block** – contains boot code (present on all partitions, even if they aren’t bootable).  
+- **Superblock** – stores metadata, including the size of the inode table, logical blocks, and data blocks.  
+- **Inode table** – a critical structure that maintains metadata about files and directories. For example, when you double-click a directory in a GUI, the system uses the inode entry to check permissions and locate files.  
+- **Data blocks** – where the actual data is stored.  
+
+### Putting It All Together: The Boot Process
+The Linux boot process begins the moment you press the power button:
+
+1. **BIOS/UEFI Initialization** – The BIOS (stored in ROM) runs the **Power-On Self Test (POST)**, checking hardware and I/O connections.  
+2. **Loading the MBR** – BIOS loads the MBR from the disk. The MBR contains:  
+   - *Disk signature* – identifies the bootable disk (if multiple disks exist).  
+   - *Partition table* – describes how partitions are laid out.  
+   - *Master boot code* – responsible for loading the bootloader into memory.  
+3. **Bootloader (GRUB2)** – The master boot code loads **GRUB2**, the bootloader, into memory.  
+4. **Kernel Loading** – GRUB2 loads the compressed Linux kernel image (`vmlinuz`) from the `/boot` directory into RAM.  
+5. **System Initialization (systemd)** – Once the kernel is running, it starts **systemd** (process ID 1), the parent of all other processes. Systemd initializes the system by setting the hostname, starting services, configuring the network, and more.  
+   - Older systems used **SysVinit**, but modern Linux distributions rely on **systemd**.  
+   - Previous systems used *runlevels* (e.g., single-user, multi-user, graphical). Today, systemd replaces them with **targets**:  
+
+   - Runlevel 0 → `poweroff.target`  
+   - Runlevel 3 → `multi-user.target`  
+   - Runlevel 5 → `graphical.target`  
+
+6. **Login Screen** – After initialization, the system presents the login screen, ready for user access.  
 
 ![](attachments/linux_four.png)
-
-The GRUB bootloader loads the compressed kernel image vimlinuz file which is stored on /boot directory into the RAM. The kernel takes over after this and starts the systemd which is process with PID of 1 which is the parent of all the process in a linux system. Systemd performs all the initialization task like setting machine name and initializing network and more. Formerly Sysvinit or init was used which has been replaced by modern Systemd. Before runlevels was used to identify how the OS is to be used. for example like in single user mode, multi user or graphical mode. Now it is defined in terms of targets.
-example:
-
-* runlevel 0 -> poweroff.target
-* runlevel 3 -> multiuser.target
-* runlevel 5 -> graphical.target
-
-I skipped some runlevels. After the runlevel scripts or target scripts is run and if everything goes fine we are prompted with login screen
-

@@ -10,34 +10,83 @@ hide:
     display: none;
   }
 </style>
-Hello! I'm Lincoln Basnet an electronics engineering graduate of Pulchowk Campus. I have a keen interest in various fields, including cybersecurity, networking, Linux and more. In this document, I'll share a bit more about my passions and experiences in these areas.
 
-## <span style="color:#9f00ff">Cybersecurity</span>
+# Hi, I’m Lincoln Basnet
 
-Cybersecurity has always fascinated me. I enjoy exploring ways to protect computer systems, networks, and data from unauthorized access and malicious activities. Some of the topics I've explored on in the field of cybersecurity include:
+<div class="lb-hero">
+  <p class="lb-sub">Electronics Engineering graduate • IT Support • Networking • Linux • Cybersecurity</p>
+  <div class="lb-cta">
+    <!-- Links updated to current slugs -->
+    <a href="/IT Support/Active Directory/" class="md-button md-button--primary">Browse Notes</a>
+    <a href="/tryhackme/bountyhacker/" class="md-button md-button--primary">See Writeups</a>
+  </div>
+</div>
 
-- Ethical hacking and penetration testing 
--  Network security 
--  Web application security
--  Cryptography
+---
 
+## What I Do
 
+<div class="lb-grid">
+  <a class="lb-card" href="/IT Support/Active Directory/">
+    <h3>IT Support</h3>
+    <p>Active Directory, BitLocker/TPM, and DNS troubleshooting.</p>
+    <span class="lb-link">Open AD Guide →</span>
+  </a>
 
-## <span style="color:#9f00ff">Networking</span>
+  <a class="lb-card" href="/linux/Boot Process/">
+    <h3>Linux & Systems</h3>
+    <p>Boot process, filesystems, inodes, and practical Linux tips.</p>
+    <span class="lb-link">See Boot Process →</span>
+  </a>
 
-Networking is another area that intrigues me. Understanding how computers and devices communicate and connect with each other is essential in today's interconnected world. Here are some networking topics I've explored:
+  <a class="lb-card" href="/notes/webhacking/recon/">
+    <h3>Cybersecurity</h3>
+    <p>Ethical hacking, recon, web app security, and CTF notes.</p>
+    <span class="lb-link">Start with Recon →</span>
+  </a>
 
-- Network protocols (TCP/IP, DNS, HTTP, DHCP)
-- Routing and switching
-- Wireless networking
-- Network troubleshooting
+  <a class="lb-card" href="/notes/cloud/cloudbasics/">
+    <h3>Cloud</h3>
+    <p>Cloud basics, AWS EventBridge, AWS Config, and CloudWatch Logs.</p>
+    <span class="lb-link">Begin Cloud Notes →</span>
+  </a>
 
+  <a class="lb-card" href="/notes/tools/nmap/">
+    <h3>Tools</h3>
+    <p>Nmap usage, methodology, and handy assessment snippets.</p>
+    <span class="lb-link">Open Nmap Guide →</span>
+  </a>
 
-## <span style="color:#9f00ff">Hobbies</span>
+  <a class="lb-card" href="/hackthebox/busqueda/">
+    <h3>Writeups</h3>
+    <p>TryHackMe & HackTheBox — step-by-step walkthroughs.</p>
+    <span class="lb-link">See HTB: Busqueda →</span>
+  </a>
+</div>
 
-In addition to my academic pursuits, I have a passion for sports. Playing and watching sports like basketball and football is one of my favorite hobbies.
+---
 
-Feel free to reach out if you'd like to discuss any of these topics further or collaborate on projects related to cybersecurity, networking, scripting, or any other field of interest!. The links for my social handles are present on the footer of this website.
+## Highlights
 
+- 🛠️ <strong>IT Support:</strong> Active Directory, BitLocker/TPM, DNS troubleshooting, VPN troubleshooting 
+- 🧭 <strong>Methodology:</strong> Practical workflows for recon and enumeration  
+- 🐧 <strong>Linux Deep Dives:</strong> Boot process, init, filesystems, inodes  
+- ☁️ <strong>Cloud:</strong> Cloud basics, EventBridge, Config, CloudWatch Logs  
+- 🧪 <strong>Writeups:</strong> TryHackMe & HackTheBox step-by-step notes
 
+<div class="lb-chips">
+  <span class="lb-chip">IT Support</span>
+  <span class="lb-chip">Linux</span>
+  <span class="lb-chip">Web Hacking</span>
+  <span class="lb-chip">Cloud</span>
+  <span class="lb-chip">Tools</span>
+  <span class="lb-chip">Writeups</span>
+</div>
 
+---
+
+## About Me
+
+I’m an electronics engineering graduate with a strong interest in **IT Support**, **Networking**, **Linux**, **Cloud**, and **Cybersecurity**. I enjoy breaking down complex concepts into clear, useful notes and hands-on guides.
+
+If you’d like to collaborate, feel free to reach out — my socials are in the footer.

@@ -1,16 +1,24 @@
-site_name: CyberSecurity Writeups
+site_name: "Lincoln Basnet"
 site_url: https://lincoln5702.github.io
 nav:
-  - About Me: about_me.md
+  - WhoAmI: index.md
   - Notes: 
     - Linux:
         - linux/Boot Process.md
         - linux/Inode.md
+    - IT Support:
+        - IT Support/Active Directory.md
+        - IT Support/Bitlocker and TPM.md
+        - IT Support/Bitlocker Encryption.md
+        - IT Support/DNS Troubleshooting.md
     - Web Hacking:
         - notes/WebHacking/recon.md
         - notes/WebHacking/methodology.md
     - Cloud:
-        - notes/cloud/CloudBasics.md  
+        - notes/cloud/CloudBasics.md
+        - notes/cloud/AWS EventBridge.md
+        - notes/cloud/AWS Config.md
+        - notes/cloud/CloudWatch Logs.md
     - tools:
         - notes/tools/Nmap.md    
 
