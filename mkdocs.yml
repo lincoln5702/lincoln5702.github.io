@@ -102,7 +102,7 @@
 site_name: "Lincoln Basnet"
 site_url: https://lincoln5702.github.io
 nav:
-  - WhoAmI: index.md
+  - Whoami: index.md
   - Notes: 
     - Linux:
         - linux/Boot Process.md
