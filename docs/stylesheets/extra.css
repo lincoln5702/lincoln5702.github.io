@@ -132,10 +132,11 @@ body,
 }
 
 .lb-btn--primary:hover {
-  background: #005f85;
+  background: #3aaed8;
   color: #ffffff;
   text-decoration: none;
 }
+
 
 .lb-btn--ghost {
   border: 1px solid var(--lb-accent);
