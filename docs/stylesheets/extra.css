@@ -6,8 +6,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-/* ── Root tokens ─────────────────────────────────────────── */
-:root {
+/* ── Root tokens — light mode (default) ──────────────────── */
+:root,
+[data-md-color-scheme="default"] {
+  --lb-bg:         #ffffff;
+  --lb-surface:    #f6f8fa;
+  --lb-border:     #d0d7de;
+  --lb-accent:     #0077a8;
+  --lb-accent-dim: rgba(0, 119, 168, 0.07);
+  --lb-text:       #24292f;
+  --lb-muted:      #57606a;
+  --lb-heading:    #0d1117;
+  --lb-mono:       'JetBrains Mono', monospace;
+  --lb-sans:       'Inter', sans-serif;
+  --lb-radius:     4px;
+  --lb-transition: 200ms ease;
+}
+
+/* ── Root tokens — dark mode ─────────────────────────────── */
+[data-md-color-scheme="slate"] {
   --lb-bg:         #0d0f12;
   --lb-surface:    #131619;
   --lb-border:     #1f2328;
@@ -265,7 +282,28 @@ body,
   font-weight: 500;
 }
 
-/* ── Material overrides for dark consistency ─────────────── */
+/* ── Material overrides — light mode ─────────────────────── */
+[data-md-color-scheme="default"] .md-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--lb-border);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-nav__title {
+  color: var(--lb-heading);
+}
+
+[data-md-color-scheme="default"] .md-typeset code {
+  font-family: var(--lb-mono);
+  font-size: 0.82rem;
+  background: var(--lb-surface);
+  border: 1px solid var(--lb-border);
+  border-radius: 2px;
+  color: var(--lb-accent);
+}
+
+/* ── Material overrides — dark mode ──────────────────────── */
 [data-md-color-scheme="slate"] .md-header {
   background: #0d0f12;
   border-bottom: 1px solid var(--lb-border);
@@ -285,6 +323,17 @@ body,
   border: 1px solid var(--lb-border);
   border-radius: 2px;
   color: var(--lb-accent);
+}
+
+/* ── HackTheBox tag — only visible on dark mode ───────────── */
+[data-md-color-scheme="default"] .lb-machine--htb {
+  border-color: #2d7a00;
+  color: #2d7a00;
+}
+
+[data-md-color-scheme="default"] .lb-machine--htb:hover {
+  background: rgba(45, 122, 0, 0.07);
+  color: #2d7a00;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
