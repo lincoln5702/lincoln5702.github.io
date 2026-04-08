@@ -294,6 +294,17 @@ body,
   color: var(--lb-heading);
 }
 
+/* Fix: toggle icon invisible on white background in light mode */
+[data-md-color-scheme="default"] .md-header__button.md-icon,
+[data-md-color-scheme="default"] .md-header__button {
+  color: #24292f !important;
+}
+
+[data-md-color-scheme="default"] .md-header__button svg,
+[data-md-color-scheme="default"] .md-header__button.md-icon svg {
+  fill: #24292f !important;
+}
+
 [data-md-color-scheme="default"] .md-typeset code {
   font-family: var(--lb-mono);
   font-size: 0.82rem;
@@ -301,6 +312,14 @@ body,
   border: 1px solid var(--lb-border);
   border-radius: 2px;
   color: var(--lb-accent);
+}
+
+/* ── Nav tabs — larger font ──────────────────────────────── */
+.md-tabs__link {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  opacity: 1 !important;
 }
 
 /* ── Material overrides — dark mode ──────────────────────── */
