@@ -50,7 +50,7 @@ body,
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .lb-hero {
-  padding: 5rem 1.5rem 4rem;
+  padding: 2.5rem 1.5rem 4rem;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -117,24 +117,24 @@ body,
 
 .lb-btn--primary {
   background: var(--lb-accent);
-  color: #0d0f12;
+  color: #ffffff;
   font-weight: 600;
 }
 
 .lb-btn--primary:hover {
-  background: #48cae4;
-  color: #0d0f12;
+  background: #005f85;
+  color: #ffffff;
   text-decoration: none;
 }
 
 .lb-btn--ghost {
-  border: 1px solid var(--lb-border);
-  color: var(--lb-text);
+  border: 1px solid var(--lb-accent);
+  color: var(--lb-accent);
   background: transparent;
 }
 
 .lb-btn--ghost:hover {
-  border-color: var(--lb-accent);
+  background: var(--lb-accent-dim);
   color: var(--lb-accent);
   text-decoration: none;
 }
@@ -297,6 +297,32 @@ body,
 
 [data-md-color-scheme="default"] .md-tabs {
   background-color: #1e2a3a;
+}
+
+/* ── Search bar — light mode fixes ──────────────────────── */
+[data-md-color-scheme="default"] .md-search__form {
+  background-color: #e8e6e1 !important;
+  border: 1px solid #c8c5be !important;
+  border-radius: 4px;
+}
+
+[data-md-color-scheme="default"] .md-search__form:hover,
+[data-md-color-scheme="default"] .md-search__form:focus-within {
+  background-color: #dedad4 !important;
+  border-color: #0077a8 !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input {
+  color: #24292f !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: #57606a !important;
+  opacity: 1 !important;
+}
+
+[data-md-color-scheme="default"] .md-search__icon {
+  color: #57606a !important;
 }
 
 [data-md-color-scheme="default"] .md-header__title,
