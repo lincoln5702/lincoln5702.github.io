@@ -306,8 +306,19 @@ body,
 }
 
 [data-md-color-scheme="default"] .md-tabs {
-  background-color: #1e2a3a;
+  background-color: var(--lb-bg);
+  border-bottom: 1px solid var(--lb-border);
+
 }
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: var(--lb-heading);
+}
+
+[data-md-color-scheme="default"] .md-tabs__link--active {
+  color: var(--lb-accent);
+}
+
 
 /* ── Search bar — light mode fixes ──────────────────────── */
 [data-md-color-scheme="default"] .md-search__form {
