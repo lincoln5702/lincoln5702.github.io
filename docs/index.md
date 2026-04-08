@@ -4,6 +4,7 @@ hide:
   - toc
   - pageTitle
 ---
+
 <style>
   .md-typeset h1,
   .md-content__button {
@@ -11,82 +12,99 @@ hide:
   }
 </style>
 
-# Hi, I’m Lincoln Basnet
-
-<div class="lb-hero">
-  <p class="lb-sub">Electronics Engineering graduate • IT Support • Networking • Linux • Cybersecurity</p>
-  <div class="lb-cta">
-    <!-- Links updated to current slugs -->
-    <a href="/IT Support/Active Directory/" class="md-button md-button--primary">Browse Notes</a>
-    <a href="/tryhackme/bountyhacker/" class="md-button md-button--primary">See Writeups</a>
+<section class="lb-hero">
+  <div class="lb-hero-inner">
+    <p class="lb-terminal">~/lincoln-basnet</p>
+    <h1 class="lb-name">Lincoln Basnet</h1>
+    <p class="lb-tagline">IT Support Engineer &nbsp;|&nbsp; Cybersecurity</p>
+    <p class="lb-desc">
+      I document what I learn — Linux internals, cloud architecture, web hacking methodology,
+      and CTF walkthroughs. Everything is hands-on, nothing is theoretical fluff.
+    </p>
+    <div class="lb-cta">
+      <a href="/IT Support/Active Directory/" class="lb-btn lb-btn--primary">Browse Notes</a>
+      <a href="/tryhackme/bountyhacker/" class="lb-btn lb-btn--ghost">See Writeups</a>
+    </div>
   </div>
-</div>
+</section>
 
----
+<section class="lb-section">
+  <h2 class="lb-section-title">What I Cover</h2>
+  <div class="lb-grid">
 
-## What I Do
+    <a class="lb-card" href="/IT Support/Active Directory/">
+      <div class="lb-card-tag">01</div>
+      <h3>IT Support</h3>
+      <p>Active Directory, BitLocker/TPM, DNS troubleshooting, and enterprise support workflows.</p>
+      <span class="lb-arrow">→</span>
+    </a>
 
-<div class="lb-grid">
-  <a class="lb-card" href="/IT Support/Active Directory/">
-    <h3>IT Support</h3>
-    <p>Active Directory, BitLocker/TPM, and DNS troubleshooting.</p>
-    <span class="lb-link">Open AD Guide →</span>
-  </a>
+    <a class="lb-card" href="/linux/Boot Process/">
+      <div class="lb-card-tag">02</div>
+      <h3>Linux &amp; Systems</h3>
+      <p>Boot process, init systems, filesystems, inodes — Linux from the ground up.</p>
+      <span class="lb-arrow">→</span>
+    </a>
 
-  <a class="lb-card" href="/linux/Boot Process/">
-    <h3>Linux & Systems</h3>
-    <p>Boot process, filesystems, inodes, and practical Linux tips.</p>
-    <span class="lb-link">See Boot Process →</span>
-  </a>
+    <a class="lb-card" href="/notes/webhacking/recon/">
+      <div class="lb-card-tag">03</div>
+      <h3>Cybersecurity</h3>
+      <p>Ethical hacking, reconnaissance methodology, web application security, and CTF notes.</p>
+      <span class="lb-arrow">→</span>
+    </a>
 
-  <a class="lb-card" href="/notes/webhacking/recon/">
-    <h3>Cybersecurity</h3>
-    <p>Ethical hacking, recon, web app security, and CTF notes.</p>
-    <span class="lb-link">Start with Recon →</span>
-  </a>
+    <a class="lb-card" href="/notes/cloud/cloudbasics/">
+      <div class="lb-card-tag">04</div>
+      <h3>Cloud — AWS</h3>
+      <p>Cloud fundamentals, EventBridge, AWS Config, CloudWatch Logs, and security tooling.</p>
+      <span class="lb-arrow">→</span>
+    </a>
 
-  <a class="lb-card" href="/notes/cloud/cloudbasics/">
-    <h3>Cloud</h3>
-    <p>Cloud basics, AWS EventBridge, AWS Config, and CloudWatch Logs.</p>
-    <span class="lb-link">Begin Cloud Notes →</span>
-  </a>
+    <a class="lb-card" href="/notes/tools/nmap/">
+      <div class="lb-card-tag">05</div>
+      <h3>Tools</h3>
+      <p>Nmap scanning, enumeration techniques, and practical assessment workflows.</p>
+      <span class="lb-arrow">→</span>
+    </a>
 
-  <a class="lb-card" href="/notes/tools/nmap/">
-    <h3>Tools</h3>
-    <p>Nmap usage, methodology, and handy assessment snippets.</p>
-    <span class="lb-link">Open Nmap Guide →</span>
-  </a>
+    <a class="lb-card" href="/hackthebox/busqueda/">
+      <div class="lb-card-tag">06</div>
+      <h3>Writeups</h3>
+      <p>TryHackMe and HackTheBox — full methodology from recon to root.</p>
+      <span class="lb-arrow">→</span>
+    </a>
 
-  <a class="lb-card" href="/hackthebox/busqueda/">
-    <h3>Writeups</h3>
-    <p>TryHackMe & HackTheBox — step-by-step walkthroughs.</p>
-    <span class="lb-link">See HTB: Busqueda →</span>
-  </a>
-</div>
+  </div>
+</section>
 
----
+<section class="lb-section">
+  <h2 class="lb-section-title">CTF Machines Completed</h2>
+  <div class="lb-machines">
+    <a href="/tryhackme/Gaming Server CTF/" class="lb-machine">Gaming Server</a>
+    <a href="/tryhackme/Root me/" class="lb-machine">Root Me</a>
+    <a href="/tryhackme/simple ctf/" class="lb-machine">Simple CTF</a>
+    <a href="/tryhackme/Overlayfs/" class="lb-machine">Overlayfs</a>
+    <a href="/tryhackme/lazyadmin/" class="lb-machine">Lazy Admin</a>
+    <a href="/tryhackme/bountyhacker/" class="lb-machine">Bounty Hacker</a>
+    <a href="/tryhackme/Blog/" class="lb-machine">Blog</a>
+    <a href="/tryhackme/IDE/" class="lb-machine">IDE</a>
+    <a href="/tryhackme/relevant/" class="lb-machine">Relevant</a>
+    <a href="/tryhackme/overpass/" class="lb-machine">Overpass</a>
+    <a href="/hackthebox/busqueda/" class="lb-machine lb-machine--htb">Busqueda</a>
+  </div>
+</section>
 
-## Highlights
-
-- 🛠️ <strong>IT Support:</strong> Active Directory, BitLocker/TPM, DNS troubleshooting, VPN troubleshooting 
-- 🧭 <strong>Methodology:</strong> Practical workflows for recon and enumeration  
-- 🐧 <strong>Linux Deep Dives:</strong> Boot process, init, filesystems, inodes  
-- ☁️ <strong>Cloud:</strong> Cloud basics, EventBridge, Config, CloudWatch Logs  
-- 🧪 <strong>Writeups:</strong> TryHackMe & HackTheBox step-by-step notes
-
-<div class="lb-chips">
-  <span class="lb-chip">IT Support</span>
-  <span class="lb-chip">Linux</span>
-  <span class="lb-chip">Web Hacking</span>
-  <span class="lb-chip">Cloud</span>
-  <span class="lb-chip">Tools</span>
-  <span class="lb-chip">Writeups</span>
-</div>
-
----
-
-## About Me
-
-I’m an electronics engineering graduate with a strong interest in **IT Support**, **Networking**, **Linux**, **Cloud**, and **Cybersecurity**. I enjoy breaking down complex concepts into clear, useful notes and hands-on guides.
-
-If you’d like to collaborate, feel free to reach out — my socials are in the footer.
+<section class="lb-about">
+  <div class="lb-about-inner">
+    <h2 class="lb-section-title">About</h2>
+    <p>
+      Engineering graduate from <strong>Pulchowk Campus, Tribhuvan University</strong> — Nepal's most
+      selective engineering institution. Currently working as a Service Desk Engineer in Australia
+      while actively building toward a career in cybersecurity.
+    </p>
+    <p>
+      I learn by doing, and I write everything down. These notes exist because the best way
+      to understand something is to explain it clearly.
+    </p>
+  </div>
+</section>
