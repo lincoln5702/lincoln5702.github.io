@@ -19,7 +19,7 @@ hide:
     <p class="lb-tagline">IT Support Engineer &nbsp;|&nbsp; Cybersecurity</p>
     <p class="lb-desc">
       I document what I learn — Linux internals, cloud architecture, web hacking methodology,
-      and CTF walkthroughs. Everything is hands-on, nothing is theoretical fluff.
+      and CTF walkthroughs.
     </p>
     <div class="lb-cta">
       <a href="/IT Support/Active Directory/" class="lb-btn lb-btn--primary">Browse Notes</a>
@@ -98,13 +98,8 @@ hide:
   <div class="lb-about-inner">
     <h2 class="lb-section-title">About</h2>
     <p>
-      Engineering graduate from <strong>Pulchowk Campus, Tribhuvan University</strong> — Nepal's most
-      selective engineering institution. Currently working as a Service Desk Engineer in Australia
+      Currently working as a Service Desk Engineer in Australia
       while actively building toward a career in cybersecurity.
-    </p>
-    <p>
-      I learn by doing, and I write everything down. These notes exist because the best way
-      to understand something is to explain it clearly.
     </p>
   </div>
 </section>
