@@ -1,3 +1,104 @@
+# site_name: "Lincoln Basnet"
+# site_url: https://lincoln5702.github.io
+# nav:
+#   - WhoAmI: index.md
+#   - Notes: 
+#     - Linux:
+#         - linux/Boot Process.md
+#         - linux/Inode.md
+#     - IT Support:
+#         - IT Support/Active Directory.md
+#         - IT Support/Bitlocker and TPM.md
+#         - IT Support/Bitlocker Encryption.md
+#         - IT Support/DNS Troubleshooting.md
+#     - Web Hacking:
+#         - notes/WebHacking/recon.md
+#         - notes/WebHacking/methodology.md
+#     - Cloud:
+#         - notes/cloud/CloudBasics.md
+#         - notes/cloud/AWS EventBridge.md
+#         - notes/cloud/AWS Config.md
+#         - notes/cloud/CloudWatch Logs.md
+#     - tools:
+#         - notes/tools/Nmap.md    
+
+#     - Others:
+#         - Important note.md 
+#   - Writeups:
+#      - Tryhackme:
+#          - tryhackme/Gaming Server CTF.md 
+#          - tryhackme/Root me.md
+#          - tryhackme/simple ctf.md
+#          - tryhackme/Overlayfs.md
+#          - tryhackme/lazyadmin.md
+#          - tryhackme/bountyhacker.md   
+#          - tryhackme/Blog.md 
+#          - tryhackme/IDE.md
+#          - tryhackme/relevant.md
+#          - tryhackme/overpass.md   
+#      - HacktheBox:
+#          - hackthebox/busqueda.md
+#   - CollegeResources:
+#     - MajorProject:
+#          - majorproject/apache kafka.md 
+#          - majorproject/openHIE.md
+# theme:
+#   name: material
+#   font: 
+#     text: roboto
+#   features:
+#     - navigation.instant
+#     - navigation.top
+#     - navigation.path
+#     - navigation.indexes
+#     - navigation.top
+#     - navigation.tabs
+#     - navigation.sections
+#     - navigation.expand
+#     - navigation.footer
+#     - search.suggest
+#     - search.highlight
+#     - content.tabs.link
+#     - content.code.annotation
+#     - content.code.copy
+#   language: en
+#   palette:
+
+#     # Palette toggle for light mode
+#     - media: "(prefers-color-scheme: light)"
+#       scheme: default
+#       toggle:
+#         icon: material/brightness-7
+#         name: Switch to dark mode
+
+#     # Palette toggle for dark mode
+#     - media: "(prefers-color-scheme: dark)"
+#       scheme: slate
+#       toggle:
+#         icon: material/brightness-4
+#         name: Switch to light mode
+# markdown_extensions:
+#   - pymdownx.highlight:
+#       anchor_linenums: true
+#   - pymdownx.inlinehilite
+#   - pymdownx.snippets
+#   - admonition
+#   - pymdownx.arithmatex:
+#       generic: true
+#   - footnotes
+#   - pymdownx.details
+#   - pymdownx.superfences
+#   - pymdownx.mark
+#   - attr_list
+# extra_css:
+#   - stylesheets/extra.css
+# extra:
+
+#   social:
+#     - icon: fontawesome/brands/github-alt
+#       link: https://github.com/lincoln5702
+#     - icon: fontawesome/brands/linkedin
+#       link: https://www.linkedin.com/in/lincoln-basnet-010426206/
 site_name: "Lincoln Basnet"
 site_url: https://lincoln5702.github.io
 nav:
@@ -21,7 +122,6 @@ nav:
         - notes/cloud/CloudWatch Logs.md
     - tools:
         - notes/tools/Nmap.md    
-
     - Others:
         - Important note.md 
   - Writeups:
@@ -42,16 +142,17 @@ nav:
     - MajorProject:
          - majorproject/apache kafka.md 
          - majorproject/openHIE.md
+
 theme:
   name: material
-  font: 
-    text: roboto
+  font:
+    text: Inter
+    code: JetBrains Mono
   features:
     - navigation.instant
     - navigation.top
     - navigation.path
     - navigation.indexes
-    - navigation.top
     - navigation.tabs
     - navigation.sections
     - navigation.expand
@@ -63,20 +164,21 @@ theme:
     - content.code.copy
   language: en
   palette:
-
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: black
+      accent: cyan
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: black
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -90,10 +192,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.mark
   - attr_list
+
 extra_css:
   - stylesheets/extra.css
-extra:
 
+extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/lincoln5702
