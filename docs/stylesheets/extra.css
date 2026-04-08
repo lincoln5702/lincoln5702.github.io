@@ -126,7 +126,7 @@ body,
 }
 
 .lb-btn--primary {
-  background: var(--lb-accent);
+  background: #2a9ec5;
   color: #ffffff;
   font-weight: 600;
 }
