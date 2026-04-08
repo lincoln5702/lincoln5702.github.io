@@ -9,9 +9,9 @@
 /* ── Root tokens — light mode (default) ──────────────────── */
 :root,
 [data-md-color-scheme="default"] {
-  --lb-bg:         #ffffff;
-  --lb-surface:    #f6f8fa;
-  --lb-border:     #d0d7de;
+  --lb-bg:         #f5f4f0;
+  --lb-surface:    #eeecea;
+  --lb-border:     #d5d2cc;
   --lb-accent:     #0077a8;
   --lb-accent-dim: rgba(0, 119, 168, 0.07);
   --lb-text:       #24292f;
@@ -284,9 +284,19 @@ body,
 
 /* ── Material overrides — light mode ─────────────────────── */
 [data-md-color-scheme="default"] .md-header {
-  background: #ffffff;
+  background: #f5f4f0;
   border-bottom: 1px solid var(--lb-border);
   box-shadow: none;
+}
+
+[data-md-color-scheme="default"] .md-main,
+[data-md-color-scheme="default"] .md-content,
+[data-md-color-scheme="default"] body {
+  background-color: #f5f4f0;
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: #1a1a1a;
 }
 
 [data-md-color-scheme="default"] .md-header__title,
