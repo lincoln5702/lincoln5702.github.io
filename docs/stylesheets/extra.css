@@ -50,9 +50,19 @@ body,
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .lb-hero {
-  padding: 2.5rem 1.5rem 4rem;
+  padding: 1.5rem 1.5rem 2rem;
   max-width: 720px;
   margin: 0 auto;
+}
+
+/* ── Kill MkDocs default article top padding on homepage ─── */
+.md-content__inner {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.md-content__inner > h1:first-child {
+  margin-top: 0 !important;
 }
 
 .lb-terminal {
@@ -142,7 +152,7 @@ body,
 /* ── Sections ────────────────────────────────────────────── */
 .lb-section {
   max-width: 900px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 3rem;
   padding: 0 1.5rem;
 }
 
