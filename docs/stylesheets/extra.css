@@ -1,278 +1,307 @@
-@font-face {
-  font-family: 'Menlo Regular';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Menlo Regular'),
-       url('fonts/menlo-cufonfonts-webfont/Menlo-Regular.woff') format('woff');
-}
+/* ============================================================
+   Lincoln Basnet — extra.css
+   Font: Inter (body) + JetBrains Mono (code/terminal accents)
+   Palette: near-black bg, off-white text, single accent #00b4d8
+   ============================================================ */
 
-/* ---------- Global Theme Variables ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Root tokens ─────────────────────────────────────────── */
 :root {
-  --md-primary-fg-color: #161b24;
-  --md-primary-bg-color: #6a97df;
-  --md-text-font: "Menlo Regular";
-  font-size: 20px;
+  --lb-bg:         #0d0f12;
+  --lb-surface:    #131619;
+  --lb-border:     #1f2328;
+  --lb-accent:     #00b4d8;
+  --lb-accent-dim: rgba(0, 180, 216, 0.08);
+  --lb-text:       #c9d1d9;
+  --lb-muted:      #6e7681;
+  --lb-heading:    #e6edf3;
+  --lb-mono:       'JetBrains Mono', monospace;
+  --lb-sans:       'Inter', sans-serif;
+  --lb-radius:     4px;
+  --lb-transition: 200ms ease;
 }
 
-
-[data-md-color-scheme="default"] {
-  --md-default-bg-color: hwb(0 100% 0%);
-  --md-primary-fg-color: #16202c;
-  --md-primary-bg-color: #6a97df;
-  --md-footer-bg-color: #141d2b;
-  --md-footer-fg-color: #d25a5a;
+/* ── Global font override ────────────────────────────────── */
+body,
+.md-typeset {
+  font-family: var(--lb-sans);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--lb-text);
 }
 
-/* Dark mode (slate) — richer, higher-contrast palette */
-[data-md-color-scheme="slate"] {
-  /* Page background */
-  --md-default-bg-color: #0f172a;   /* deep slate */
-
-  /* Header / navbar background */
-  --md-primary-fg-color: #141d2b;   /* inky navy for strong contrast */
-
-  /* Accent (links, active tab underline) */
-  --md-primary-bg-color: #6a97df;   /* keep your brand blue */
-
-  /* Footer */
-  --md-footer-bg-color: #141d2b;    /* match header */
-  --md-footer-fg-color: #e5e7eb;    /* light text for readability */
-}
-
-
-/* ===================== HEADER & MENU ===================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&display=swap');
-
-/* Hide the left “book” logo button */
-.md-header__button.md-logo { display: none !important; }
-
-/* Lincoln Basnet title */
-.md-header__title {
-  display: flex !important;
-  align-items: center;
-  margin-right: 1rem;
-  margin-top: 0.75rem;
-  font-size: 1.0rem;  /* smaller */
-  font-weight: 800;
-  letter-spacing: .5px;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  padding: 0;
-}
-
-/* Gradient shimmer effect */
-.md-header__title a,
-.md-header__title .md-ellipsis,
-.md-header__title .md-ellipsis a {
-  display: inline-block;
-  background: linear-gradient(90deg, #6a97df 0%, #9FEF00 50%, #6a97df 100%);
-  background-size: 200% 100%;
-  animation: lb-shimmer 6s ease-in-out infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent !important;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin: 0;
-}
-
-@keyframes lb-shimmer {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Gradient underline */
-.md-header__title .md-ellipsis {
-  position: relative;
-}
-.md-header__title .md-ellipsis::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -4px;
-  height: 2px;
-  background: linear-gradient(90deg, #6a97df, #9FEF00);
-  opacity: 0;
-  transform: scaleX(.6);
-  transform-origin: left center;
-  transition: transform .25s ease, opacity .25s ease;
-}
-.md-header__title:hover .md-ellipsis::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-/* ---------- Header sizing/alignment ---------- */
-.md-header {
-  height: auto;
-  min-height: 3rem;
-  padding: 0 .5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  overflow: visible;
-}
-.md-header-nav { padding: .28rem .8rem .2rem; }
-
-/* Tabs container */
-.md-tabs {
-  background: transparent !important;
-  display: flex;
-  justify-content: center;
-  overflow: visible !important;
-  margin-top: 0;
-  line-height: 1;
-}
-
-/* Allow wrapping instead of scrolling */
-.md-tabs__list {
-  display: flex;
-  flex-wrap: wrap !important;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 100%;
-  overflow: visible;
-}
-
-/* Top navigation links (WhoAmI, Notes, etc.) */
-.md-tabs__link {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 1.1rem;           /* larger */
-  font-weight: 700;            /* bold */
-  letter-spacing: .25px;
-  padding: .38rem .75rem;
-  color: #222 !important;
-  opacity: 1 !important;
-  border-bottom: 2px solid transparent;
-  transition: color .15s ease, border-bottom-color .15s ease;
-}
-[data-md-color-scheme="slate"] .md-tabs__link {
-  color: #f0f0f0 !important;  /* bright in dark mode */
-}
-.md-tabs__link:hover {
-  color: var(--md-primary-bg-color) !important;
-}
-.md-tabs__link--active {
-  border-bottom: 2px solid var(--md-primary-bg-color) !important;
-  color: var(--md-primary-bg-color) !important;
-}
-
-/* Sidebar navigation */
-.md-nav__link { font-size: .96rem; line-height: 1.5; }
-.md-nav__title { font-size: 1rem; font-weight: 700; margin-top: .35rem; margin-bottom: .2rem; color: var(--md-primary-bg-color); }
-
-/* Footer */
-.md-footer-meta { background-color: #141d2b; padding: 1rem; text-align: center; font-size: .9rem; }
-
-/* Hide scrollbars */
-.md-tabs, .md-tabs__list { scrollbar-width: none; }
-.md-tabs::-webkit-scrollbar, .md-tabs__list::-webkit-scrollbar { display: none; }
-
-/* ===== Landing page (homepage) polish — scoped & lightweight ===== */
+/* ── Hero ─────────────────────────────────────────────────── */
 .lb-hero {
-  margin: .25rem 0 1rem;
-}
-.lb-sub {
-  margin: .25rem 0 .9rem;
-  font-size: 1.05rem;
-  opacity: .9;
-}
-.lb-cta .md-button {
-  margin-right: .5rem;
+  padding: 5rem 1.5rem 4rem;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-/* Simple responsive grid for the feature cards */
+.lb-terminal {
+  font-family: var(--lb-mono);
+  font-size: 0.8rem;
+  color: var(--lb-accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.lb-terminal::before {
+  content: '$ ';
+  opacity: 0.5;
+}
+
+.lb-name {
+  font-family: var(--lb-sans);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--lb-heading);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.lb-tagline {
+  font-family: var(--lb-mono);
+  font-size: 0.82rem;
+  color: var(--lb-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.lb-desc {
+  font-size: 0.95rem;
+  color: var(--lb-text);
+  max-width: 560px;
+  margin-bottom: 2.2rem;
+  line-height: 1.8;
+}
+
+/* ── CTA buttons ─────────────────────────────────────────── */
+.lb-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lb-btn {
+  font-family: var(--lb-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--lb-radius);
+  text-decoration: none;
+  transition: all var(--lb-transition);
+  display: inline-block;
+}
+
+.lb-btn--primary {
+  background: var(--lb-accent);
+  color: #0d0f12;
+  font-weight: 600;
+}
+
+.lb-btn--primary:hover {
+  background: #48cae4;
+  color: #0d0f12;
+  text-decoration: none;
+}
+
+.lb-btn--ghost {
+  border: 1px solid var(--lb-border);
+  color: var(--lb-text);
+  background: transparent;
+}
+
+.lb-btn--ghost:hover {
+  border-color: var(--lb-accent);
+  color: var(--lb-accent);
+  text-decoration: none;
+}
+
+/* ── Sections ────────────────────────────────────────────── */
+.lb-section {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  padding: 0 1.5rem;
+}
+
+.lb-section-title {
+  font-family: var(--lb-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lb-accent);
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--lb-border);
+}
+
+/* ── Card grid ───────────────────────────────────────────── */
 .lb-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin: .5rem 0 1.25rem;
-}
-@media (max-width: 900px) {
-  .lb-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .lb-grid { grid-template-columns: 1fr; }
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--lb-border);
+  border: 1px solid var(--lb-border);
+  border-radius: var(--lb-radius);
+  overflow: hidden;
 }
 
 .lb-card {
-  display: block;
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: var(--md-default-bg-color);
-  box-shadow: 0 9px 18px rgba(0,0,0,.06);
-  border: 1px solid rgba(124, 91, 91, 0.06);
-  text-decoration: none !important;
-  color: inherit;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  background: var(--lb-surface);
+  text-decoration: none;
+  color: var(--lb-text);
+  position: relative;
+  transition: background var(--lb-transition);
 }
-.lb-card h3 {
-  margin: 0 0 .35rem;
-  font-size: 1.05rem;
-}
-.lb-card p {
-  margin: 0 0 .5rem;
-  opacity: .9;
-}
-.lb-card .lb-link {
-  font-weight: 600;
-  color: var(--md-primary-bg-color);
-}
+
 .lb-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.10);
-  border-color: rgba(0,0,0,.12);
+  background: var(--lb-accent-dim);
+  text-decoration: none;
 }
 
-/* Topic chips */
-.lb-chips { margin: .35rem 0 1rem; }
-.lb-chip {
-  display:inline-block;
-  padding: .25rem .6rem;
-  border-radius: 999px;
-  border: 1.5px solid var(--md-primary-bg-color);
-  margin: 0 .35rem .35rem 0;
-  font-size: .85rem;
-  opacity: .9;
-}
-/* ===== Bigger social icons in the footer ===== */
-.md-footer .md-social {
-  gap: 0.8rem;                 /* spacing between icons */
+.lb-card:hover .lb-arrow {
+  color: var(--lb-accent);
+  transform: translateX(4px);
 }
 
-.md-footer .md-social__link {
-  width: 2.5rem;               /* click area size */
-  height: 2.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;        /* soft round hover */
-  transition: transform .15s ease, background-color .15s ease, color .15s ease;
+.lb-card-tag {
+  font-family: var(--lb-mono);
+  font-size: 0.68rem;
+  color: var(--lb-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.9rem;
 }
 
-/* Actual icon size (Material uses SVGs) */
-.md-footer .md-social__link svg {
-  width: 3.85rem;
-  height: 1.95rem;
+.lb-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--lb-heading);
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
 }
 
-/* Hover/active states for both light & dark */
-[data-md-color-scheme="default"] .md-footer .md-social__link:hover {
-  background-color: rgba(106, 151, 223, .12); /* brand blue tint */
-  color: #16202c;
-  transform: translateY(-1px);
-}
-[data-md-color-scheme="slate"] .md-footer .md-social__link:hover {
-  background-color: rgba(106, 151, 223, .18);
-  color: #e5e7eb;
-  transform: translateY(-1px);
+.lb-card p {
+  font-size: 0.83rem;
+  color: var(--lb-muted);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
 }
 
-/* Optional: label next to icons (uncomment to show text) */
-/*
-.md-footer .md-social__link::after {
-  content: attr(title);
-  margin-left: .4rem;
-  font-size: .9rem;
+.lb-arrow {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--lb-border);
+  transition: all var(--lb-transition);
+  font-family: var(--lb-mono);
 }
-*/
 
+/* ── CTF machines ────────────────────────────────────────── */
+.lb-machines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lb-machine {
+  font-family: var(--lb-mono);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--lb-border);
+  border-radius: 2px;
+  color: var(--lb-muted);
+  text-decoration: none;
+  transition: all var(--lb-transition);
+  letter-spacing: 0.04em;
+}
+
+.lb-machine:hover {
+  border-color: var(--lb-accent);
+  color: var(--lb-accent);
+  text-decoration: none;
+}
+
+.lb-machine--htb {
+  border-color: #9fef00;
+  color: #9fef00;
+}
+
+.lb-machine--htb:hover {
+  background: rgba(159, 239, 0, 0.07);
+  color: #9fef00;
+}
+
+/* ── About section ───────────────────────────────────────── */
+.lb-about {
+  max-width: 900px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.lb-about-inner {
+  border-left: 2px solid var(--lb-accent);
+  padding-left: 1.75rem;
+}
+
+.lb-about-inner p {
+  font-size: 0.9rem;
+  color: var(--lb-text);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.lb-about-inner strong {
+  color: var(--lb-heading);
+  font-weight: 500;
+}
+
+/* ── Material overrides for dark consistency ─────────────── */
+[data-md-color-scheme="slate"] .md-header {
+  background: #0d0f12;
+  border-bottom: 1px solid var(--lb-border);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title {
+  font-family: var(--lb-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  font-family: var(--lb-mono);
+  font-size: 0.82rem;
+  background: var(--lb-surface);
+  border: 1px solid var(--lb-border);
+  border-radius: 2px;
+  color: var(--lb-accent);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .lb-hero {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .lb-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lb-cta {
+    flex-direction: column;
+  }
+
+  .lb-btn {
+    text-align: center;
+  }
+}
