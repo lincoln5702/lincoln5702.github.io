@@ -120,7 +120,7 @@ nav:
         - notes/cloud/AWS EventBridge.md
         - notes/cloud/AWS Config.md
         - notes/cloud/CloudWatch Logs.md
-    - tools:
+    - Tools:
         - notes/tools/Nmap.md    
     - Others:
         - Important note.md 
