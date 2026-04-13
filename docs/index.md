@@ -46,21 +46,21 @@ hide:
       <span class="lb-arrow">→</span>
     </a>
 
-    <a class="lb-card" href="/notes/webhacking/recon/">
+    <a class="lb-card" href="/notes/WebHacking/recon/">
       <div class="lb-card-tag">03</div>
       <h3>Cybersecurity</h3>
       <p>Ethical hacking, reconnaissance methodology, web application security, and CTF notes.</p>
       <span class="lb-arrow">→</span>
     </a>
 
-    <a class="lb-card" href="/notes/cloud/cloudbasics/">
+    <a class="lb-card" href="/notes/cloud/CloudBasics/">
       <div class="lb-card-tag">04</div>
       <h3>Cloud — AWS</h3>
       <p>Cloud fundamentals, EventBridge, AWS Config, CloudWatch Logs, and security tooling.</p>
       <span class="lb-arrow">→</span>
     </a>
 
-    <a class="lb-card" href="/notes/tools/nmap/">
+    <a class="lb-card" href="/notes/tools/Nmap/">
       <div class="lb-card-tag">05</div>
       <h3>Tools</h3>
       <p>Nmap scanning, enumeration techniques, and practical assessment workflows.</p>
