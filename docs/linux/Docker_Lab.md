@@ -1,4 +1,4 @@
-# A Docker Container Security Lab
+# Docker Lab
 
 ---
 
