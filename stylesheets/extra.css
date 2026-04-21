@@ -1,0 +1,433 @@
+/* ============================================================
+   Lincoln Basnet — extra.css
+   Font: Inter (body) + JetBrains Mono (code/terminal accents)
+   Palette: near-black bg, off-white text, single accent #00b4d8
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── Root tokens — light mode (default) ──────────────────── */
+:root,
+[data-md-color-scheme="default"] {
+  --lb-bg:         #f5f4f0;
+  --lb-surface:    #eeecea;
+  --lb-border:     #d5d2cc;
+  --lb-accent:     #0077a8;
+  --lb-accent-dim: rgba(0, 119, 168, 0.07);
+  --lb-text:       #24292f;
+  --lb-muted:      #57606a;
+  --lb-heading:    #0d1117;
+  --lb-mono:       'JetBrains Mono', monospace;
+  --lb-sans:       'Inter', sans-serif;
+  --lb-radius:     4px;
+  --lb-transition: 200ms ease;
+}
+
+/* ── Root tokens — dark mode ─────────────────────────────── */
+[data-md-color-scheme="slate"] {
+  --lb-bg:         #0d0f12;
+  --lb-surface:    #131619;
+  --lb-border:     #1f2328;
+  --lb-accent:     #00b4d8;
+  --lb-accent-dim: rgba(0, 180, 216, 0.08);
+  --lb-text:       #c9d1d9;
+  --lb-muted:      #6e7681;
+  --lb-heading:    #e6edf3;
+  --lb-mono:       'JetBrains Mono', monospace;
+  --lb-sans:       'Inter', sans-serif;
+  --lb-radius:     4px;
+  --lb-transition: 200ms ease;
+}
+
+/* ── Global font override ────────────────────────────────── */
+body,
+.md-typeset {
+  font-family: var(--lb-sans);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--lb-text);
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.lb-hero {
+  padding: 1.5rem 1.5rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ── Kill MkDocs default article top padding on homepage ─── */
+.md-content__inner {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.md-content__inner > h1:first-child {
+  margin-top: 0 !important;
+}
+
+.lb-terminal {
+  font-family: var(--lb-mono);
+  font-size: 0.8rem;
+  color: var(--lb-accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.lb-terminal::before {
+  content: '$ ';
+  opacity: 0.5;
+}
+
+.lb-name {
+  font-family: var(--lb-sans);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  color: var(--lb-heading);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.lb-tagline {
+  font-family: var(--lb-mono);
+  font-size: 0.82rem;
+  color: var(--lb-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.lb-desc {
+  font-size: 0.95rem;
+  color: var(--lb-text);
+  max-width: 560px;
+  margin-bottom: 2.2rem;
+  line-height: 1.8;
+}
+
+/* ── CTA buttons ─────────────────────────────────────────── */
+.lb-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lb-btn {
+  font-family: var(--lb-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--lb-radius);
+  text-decoration: none;
+  transition: all var(--lb-transition);
+  display: inline-block;
+}
+
+.lb-btn--primary {
+  background: #2a9ec5;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.lb-btn--primary:hover {
+  background: #3aaed8;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+.lb-btn--ghost {
+  border: 1px solid var(--lb-accent);
+  color: var(--lb-accent);
+  background: transparent;
+}
+
+.lb-btn--ghost:hover {
+  background: var(--lb-accent-dim);
+  color: var(--lb-accent);
+  text-decoration: none;
+}
+
+/* ── Sections ────────────────────────────────────────────── */
+.lb-section {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+}
+
+.lb-section-title {
+  font-family: var(--lb-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lb-accent);
+  margin-bottom: 2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--lb-border);
+}
+
+/* ── Card grid ───────────────────────────────────────────── */
+.lb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--lb-border);
+  border: 1px solid var(--lb-border);
+  border-radius: var(--lb-radius);
+  overflow: hidden;
+}
+
+.lb-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  background: var(--lb-surface);
+  text-decoration: none;
+  color: var(--lb-text);
+  position: relative;
+  transition: background var(--lb-transition);
+}
+
+.lb-card:hover {
+  background: var(--lb-accent-dim);
+  text-decoration: none;
+}
+
+.lb-card:hover .lb-arrow {
+  color: var(--lb-accent);
+  transform: translateX(4px);
+}
+
+.lb-card-tag {
+  font-family: var(--lb-mono);
+  font-size: 0.68rem;
+  color: var(--lb-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.9rem;
+}
+
+.lb-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--lb-heading);
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
+}
+
+.lb-card p {
+  font-size: 0.83rem;
+  color: var(--lb-muted);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.lb-arrow {
+  display: inline-block;
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--lb-border);
+  transition: all var(--lb-transition);
+  font-family: var(--lb-mono);
+}
+
+/* ── CTF machines ────────────────────────────────────────── */
+.lb-machines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lb-machine {
+  font-family: var(--lb-mono);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--lb-border);
+  border-radius: 2px;
+  color: var(--lb-muted);
+  text-decoration: none;
+  transition: all var(--lb-transition);
+  letter-spacing: 0.04em;
+}
+
+.lb-machine:hover {
+  border-color: var(--lb-accent);
+  color: var(--lb-accent);
+  text-decoration: none;
+}
+
+.lb-machine--htb {
+  border-color: #9fef00;
+  color: #9fef00;
+}
+
+.lb-machine--htb:hover {
+  background: rgba(159, 239, 0, 0.07);
+  color: #9fef00;
+}
+
+/* ── About section ───────────────────────────────────────── */
+.lb-about {
+  max-width: 900px;
+  margin: 0 auto 5rem;
+  padding: 0 1.5rem;
+}
+
+.lb-about-inner {
+  border-left: 2px solid var(--lb-accent);
+  padding-left: 1.75rem;
+}
+
+.lb-about-inner p {
+  font-size: 0.9rem;
+  color: var(--lb-text);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.lb-about-inner strong {
+  color: var(--lb-heading);
+  font-weight: 500;
+}
+
+/* ── Material overrides — light mode ─────────────────────── */
+[data-md-color-scheme="default"] .md-header {
+  background: #f5f4f0;
+  border-bottom: 1px solid var(--lb-border);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="default"] .md-main,
+[data-md-color-scheme="default"] .md-content,
+[data-md-color-scheme="default"] body {
+  background-color: #f5f4f0;
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: var(--lb-bg);
+  border-bottom: 1px solid var(--lb-border);
+
+}
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: var(--lb-heading);
+}
+
+[data-md-color-scheme="default"] .md-tabs__link--active {
+  color: var(--lb-accent);
+}
+
+
+/* ── Search bar — light mode fixes ──────────────────────── */
+[data-md-color-scheme="default"] .md-search__form {
+  background-color: #e8e6e1 !important;
+  border: 1px solid #c8c5be !important;
+  border-radius: 4px;
+}
+
+[data-md-color-scheme="default"] .md-search__form:hover,
+[data-md-color-scheme="default"] .md-search__form:focus-within {
+  background-color: #dedad4 !important;
+  border-color: #0077a8 !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input {
+  color: #24292f !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: #57606a !important;
+  opacity: 1 !important;
+}
+
+[data-md-color-scheme="default"] .md-search__icon {
+  color: #57606a !important;
+}
+
+[data-md-color-scheme="default"] .md-header__title,
+[data-md-color-scheme="default"] .md-nav__title {
+  color: var(--lb-heading);
+}
+
+/* Fix: toggle icon invisible on white background in light mode */
+[data-md-color-scheme="default"] .md-header__button.md-icon,
+[data-md-color-scheme="default"] .md-header__button {
+  color: #24292f !important;
+}
+
+[data-md-color-scheme="default"] .md-header__button svg,
+[data-md-color-scheme="default"] .md-header__button.md-icon svg {
+  fill: #24292f !important;
+}
+
+[data-md-color-scheme="default"] .md-typeset code {
+  font-family: var(--lb-mono);
+  font-size: 0.82rem;
+  background: var(--lb-surface);
+  border: 1px solid var(--lb-border);
+  border-radius: 2px;
+  color: var(--lb-accent);
+}
+
+/* ── Nav tabs — larger font ──────────────────────────────── */
+.md-tabs__link {
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  opacity: 1 !important;
+}
+
+/* ── Material overrides — dark mode ──────────────────────── */
+[data-md-color-scheme="slate"] .md-header {
+  background: #0d0f12;
+  border-bottom: 1px solid var(--lb-border);
+  box-shadow: none;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title {
+  font-family: var(--lb-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  font-family: var(--lb-mono);
+  font-size: 0.82rem;
+  background: var(--lb-surface);
+  border: 1px solid var(--lb-border);
+  border-radius: 2px;
+  color: var(--lb-accent);
+}
+
+/* ── HackTheBox tag — only visible on dark mode ───────────── */
+[data-md-color-scheme="default"] .lb-machine--htb {
+  border-color: #2d7a00;
+  color: #2d7a00;
+}
+
+[data-md-color-scheme="default"] .lb-machine--htb:hover {
+  background: rgba(45, 122, 0, 0.07);
+  color: #2d7a00;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .lb-hero {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .lb-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lb-cta {
+    flex-direction: column;
+  }
+
+  .lb-btn {
+    text-align: center;
+  }
+}

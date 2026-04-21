@@ -1,0 +1,2778 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://lincoln5702.github.io/linux/Docker_Lab/">
+      
+      
+        <link rel="prev" href="../Inode/">
+      
+      
+        <link rel="next" href="../../IT%20Support/Active%20Directory/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Docker Lab - Lincoln Basnet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker-lab" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lincoln Basnet" class="md-header__button md-logo" aria-label="Lincoln Basnet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lincoln Basnet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker Lab
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Whoami
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Boot%20Process/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Notes
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tryhackme/Gaming%20Server%20CTF/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Writeups
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../majorproject/apache%20kafka/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CollegeResources
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lincoln Basnet" class="md-nav__button md-logo" aria-label="Lincoln Basnet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Lincoln Basnet
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Whoami
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Boot%20Process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Boot Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Inode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inode in Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Lab
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Lab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-containers-how-docker-differs-from-traditional-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Containers? How Docker Differs from Traditional VMs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-production-applications-use-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Production Applications Use Docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up the Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-the-intentionally-vulnerable-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building the Intentionally Vulnerable Application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building the Intentionally Vulnerable Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-backend-a-flask-api-with-hardcoded-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Backend — A Flask API with Hardcoded Secrets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-frontend-nginx-with-a-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Frontend — nginx with a Reverse Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-database-postgresql-with-seed-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Database — PostgreSQL with Seed Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-docker-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Docker Compose File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building and Running the Application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-vulnerable-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the Vulnerable Application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanning-with-trivy-finding-everything-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning with Trivy — Finding Everything Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scanning with Trivy — Finding Everything Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-vulnerability-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Vulnerability Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-vulnerability-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Vulnerability Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-scanning-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret Scanning — Filesystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lab-demonstrates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Lab Demonstrates
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IT Support
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IT Support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IT%20Support/Active%20Directory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Active Directory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IT%20Support/Bitlocker%20and%20TPM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BitLocker and TPM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IT%20Support/Bitlocker%20Encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BitLocker Encryption
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IT%20Support/DNS%20Troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DNS Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Hacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web Hacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/WebHacking/recon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/WebHacking/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/cloud/CloudBasics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudBasics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/cloud/AWS%20EventBridge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amazon EventBridge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/cloud/AWS%20Config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/cloud/CloudWatch%20Logs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudWatch Logs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notes/tools/Nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Others
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Others
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Important%20note/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Important note
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writeups
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Writeups
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tryhackme
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tryhackme
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Gaming%20Server%20CTF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaming Server CTF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Root%20me/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Root me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/simple%20ctf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple ctf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Overlayfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overlayfs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/lazyadmin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lazyadmin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/bountyhacker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bountyhacker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/Blog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/IDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/relevant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relevant
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tryhackme/overpass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overpass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HacktheBox
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HacktheBox
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hackthebox/busqueda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Busqueda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CollegeResources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CollegeResources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MajorProject
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MajorProject
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../majorproject/apache%20kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Apache kafka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../majorproject/openHIE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    openHIE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-containers-how-docker-differs-from-traditional-vms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Containers? How Docker Differs from Traditional VMs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-production-applications-use-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Production Applications Use Docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up the Environment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-the-intentionally-vulnerable-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building the Intentionally Vulnerable Application
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building the Intentionally Vulnerable Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-backend-a-flask-api-with-hardcoded-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Backend — A Flask API with Hardcoded Secrets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-frontend-nginx-with-a-reverse-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Frontend — nginx with a Reverse Proxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-database-postgresql-with-seed-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Database — PostgreSQL with Seed Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-docker-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Docker Compose File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-running-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building and Running the Application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-vulnerable-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the Vulnerable Application
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanning-with-trivy-finding-everything-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanning with Trivy — Finding Everything Wrong
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scanning with Trivy — Finding Everything Wrong">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#image-vulnerability-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Vulnerability Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependency-vulnerability-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Vulnerability Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secret-scanning-filesystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secret Scanning — Filesystem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-lab-demonstrates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Lab Demonstrates
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Whoami
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Boot%20Process/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Notes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../Boot%20Process/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Linux
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="docker-lab">Docker Lab</h1>
+<hr />
+<h2 id="why-containers-how-docker-differs-from-traditional-vms">Why Containers? How Docker Differs from Traditional VMs</h2>
+<p>Before diving into the lab, it's worth understanding what Docker actually does at a fundamental level because containers are not virtual machines, and the distinction matters for security.</p>
+<p>With a traditional VM, you're running an entire guest operating system on top of a hypervisor. Each VM gets its own kernel, its own memory management, its own everything. It's heavy — gigabytes of overhead, minutes to boot, and significant resource duplication if you're running ten VMs on one host.</p>
+<p>Docker containers take a completely different approach. Instead of virtualising hardware, they use three Linux kernel features to create isolated environments that share the host's kernel:</p>
+<p><strong>Namespaces</strong> provide isolation. Each container gets its own PID namespace (it sees its own process tree starting from PID 1), its own network namespace (its own IP address and network stack), and its own mount namespace (its own filesystem view). A process inside a container literally cannot see processes in other containers or on the host. It thinks it's the only thing running.</p>
+<p><strong>cgroups</strong> (Control Groups) limit resources. You can cap how much CPU and memory a container uses, so one misbehaving container can't starve the others or crash the host. Without cgroups, a container running a memory-hungry process could bring down the entire system.</p>
+<p><strong>OverlayFS</strong> creates layered filesystems. Docker images are built in read-only layers — the base OS, then installed packages, then your application code. When a container runs, a thin writable layer is added on top. This means ten containers using the same base image share those layers on disk, and builds are fast because only changed layers need to be rebuilt.</p>
+<p>The practical result: containers start in milliseconds (not minutes), use megabytes of overhead (not gigabytes), and you can run dozens on a single host. But the security tradeoff is real — they share the host kernel, so a kernel vulnerability could affect all containers. VMs have stronger isolation boundaries.</p>
+<h2 id="how-production-applications-use-docker">How Production Applications Use Docker</h2>
+<p>In a real production environment, the developer writes code and a <code>Dockerfile</code> (the recipe for building the image). They push to a Git repository, a CI/CD pipeline builds the Docker image, runs security scans, and if everything passes, deploys the image to the production server.</p>
+<p>The key insight is that the developer never touches the server directly. Code flows through Git, gets packaged into an immutable image, scanned for vulnerabilities, and only then deployed. The image IS the environment — same libraries, same versions, same configuration everywhere. No more "it works on my machine."</p>
+<p>For multi-container applications — a web server, an API backend, a database — Docker Compose orchestrates everything. One <code>docker-compose.yml</code> file defines all the services, their networking, storage volumes, and dependencies. A single <code>docker compose up</code> brings the entire stack online.</p>
+<p>Now, let's build one.</p>
+<hr />
+<h2 id="setting-up-the-environment">Setting Up the Environment</h2>
+<p>I started with a fresh Ubuntu Server VM running on VMware Workstation Pro. The first order of business was getting Docker and Trivy installed.</p>
+<p><img alt="Installing Git and creating the project directory structure" src="../images/Screenshot_2026-04-21_141843.png" /></p>
+<p>After installing Docker Engine and the Compose plugin, I installed Git and set up the project directories. The <code>mkdir -p</code> command with brace expansion creates the frontend, backend, and secrets directories in one go. There was a small hiccup with the path — <code>mkdir -p ~/vulnerable-app{frontend,backend,secrets}</code> missed the <code>/</code> separator, creating separate directories instead of subdirectories. A quick <code>rm -rf</code> and redo fixed it.</p>
+<p><img alt="Trivy repository setup and installation on Ubuntu" src="../images/Screenshot_2026-04-21_141906.png" /></p>
+<p>I added Trivy from Aqua Security's repository using <code>wget</code> for the GPG key and added the deb repository for the Ubuntu Noble release. Trivy is an open-source vulnerability scanner that can inspect container images, filesystems, and configuration files for security issues — CVEs in OS packages, vulnerable application dependencies, hardcoded secrets, and Dockerfile misconfigurations. All in one tool. A quick <code>trivy --version</code> confirmed version 0.70.0 was ready to go.</p>
+<hr />
+<h2 id="building-the-intentionally-vulnerable-application">Building the Intentionally Vulnerable Application</h2>
+<h3 id="the-backend-a-flask-api-with-hardcoded-secrets">The Backend — A Flask API with Hardcoded Secrets</h3>
+<p>The backend is where I planted the most interesting vulnerabilities. The application is a simple Flask API that connects to a PostgreSQL database and serves user data. But it's riddled with security issues — by design.</p>
+<p><img alt="Hardcoded credentials in the Flask application — database password, API key, AWS keys" src="../images/Screenshot_2026-04-21_142156.png" /></p>
+<p>Right at the top of <code>app.py</code>, you can see the hardcoded secrets: a database password (<code>SuperSecret123!</code>), an API key (<code>sk-proj-abc123...</code>), AWS access keys (<code>AKIAIOSFODNN7EXAMPLE</code>). In a real codebase, this would be catastrophic — anyone with access to the source code (or the built Docker image) can extract these credentials. Trivy's secret scanner is specifically designed to catch patterns like these.</p>
+<p>Beyond the hardcoded secrets, the API has SQL injection vulnerabilities (building queries with string concatenation instead of parameterised queries), command injection (passing user input directly to <code>subprocess.run</code> with <code>shell=True</code>), and an info endpoint that leaks the API key in its response.</p>
+<p>The <code>requirements.txt</code> was deliberately populated with older package versions known to have CVEs — Flask 2.2.0, requests 2.25.0, urllib3 1.26.5, cryptography 3.4.8, and others. Each of these has documented vulnerabilities that Trivy should flag.</p>
+<h3 id="the-frontend-nginx-with-a-reverse-proxy">The Frontend — nginx with a Reverse Proxy</h3>
+<p><img alt="nginx configuration — serving static HTML and proxying API requests to backend" src="../images/frontend.png" /></p>
+<p>The frontend is straightforward — nginx serves a static HTML dashboard and proxies API requests to the backend container. The <code>proxy_pass</code> directive routes anything under <code>/api/</code> to <code>http://backend:5000/api/</code>. Docker's internal DNS handles the name resolution — <code>backend</code> resolves to the backend container's IP address automatically because they're on the same Docker network.</p>
+<h3 id="the-database-postgresql-with-seed-data">The Database — PostgreSQL with Seed Data</h3>
+<p><img alt="Database initialisation script — creating users table and inserting test data" src="../images/backend_init.png" /></p>
+<p>The <code>init.sql</code> script creates a users table and populates it with some test data — admin, lincoln, and developer accounts with fake password hashes. PostgreSQL's Docker image automatically runs any SQL file placed in <code>/docker-entrypoint-initdb.d/</code> when the container first starts. This is how databases are typically initialised in containerised environments.</p>
+<h3 id="the-docker-compose-file">The Docker Compose File</h3>
+<p><img alt="Vulnerable docker-compose.yml — exposed ports, plain text passwords, debug mode" src="../images/Screenshot_2026-04-21_143517.png" /></p>
+<p>The <code>docker-compose.yml</code> ties everything together — and it's deliberately insecure. The backend port (5000) is exposed directly to the host, which means anyone can bypass nginx and hit the API directly. The database password (<code>DATABASE_PASSWORD=SuperSecret123!</code>) is sitting in plain text as an environment variable. Debug mode is enabled via <code>FLASK_DEBUG=1</code>. No resource limits, no security options, no network isolation between the frontend and the database.</p>
+<p>In a properly secured setup, the backend port would be internal only (accessible only through nginx), the database would be on a separate internal network that can't reach the internet, secrets would be mounted as files from Docker secrets or an external secrets manager, and containers would run as non-root users with read-only filesystems.</p>
+<hr />
+<h2 id="building-and-running-the-application">Building and Running the Application</h2>
+<p>The first attempt at <code>docker compose build</code> failed — the frontend Dockerfile wasn't being found.</p>
+<p><img alt="Initial build failure — frontend Dockerfile missing, backend cancelled" src="../images/Screenshot_2026-04-21_142627.png" /></p>
+<p>The error was clear: <code>target frontend: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory</code>. The backend started pulling the <code>python:3.9</code> image but was cancelled because the frontend build failed. Docker Compose builds all services and if any one fails, the whole build stops.</p>
+<p>After fixing the frontend Dockerfile, I built just the backend first to verify that part worked independently.</p>
+<p><img alt="Backend building successfully — pulling python:3.9 and installing dependencies" src="../images/Screenshot_2026-04-21_143225.png" /></p>
+<p>The backend build pulled the <code>python:3.9</code> base image (intentionally old — a newer slim variant would have fewer vulnerabilities), ran <code>ADD . /app</code> (using ADD instead of COPY — a Dockerfile anti-pattern), installed system packages like curl, wget, vim, and telnet (all unnecessary in a production container and expanding the attack surface), and installed the Python dependencies from our deliberately vulnerable <code>requirements.txt</code>.</p>
+<p><img alt="Frontend Dockerfile still failing on docker compose up" src="../images/Screenshot_2026-04-21_143312.png" /></p>
+<p>Even after building the backend successfully, running <code>docker compose up -d</code> still failed because the frontend Dockerfile wasn't resolving. The <code>docker compose ps</code> showed no running containers — the whole stack refused to come up with one broken service.</p>
+<p><img alt="Another build attempt — backend error pulling python:3.9 metadata" src="../images/Screenshot_2026-04-21_144134.png" /></p>
+<p>Another attempt hit a different error — this time the backend failed to load metadata for <code>docker.io/library/python:3.9</code>. This was a network connectivity issue to Docker Hub. The frontend was also still showing the same Dockerfile not found error. Docker builds need reliable internet access to pull base images from registries.</p>
+<p><img alt="All three containers finally running — frontend, backend, database" src="../images/Screenshot_2026-04-21_144445.png" /></p>
+<p>Finally, success. After resolving the frontend Dockerfile and the network issues, <code>docker compose up -d</code> brought up all three containers — frontend (nginx on port 80), backend (Flask on port 5000), and the database (PostgreSQL on port 5432). All showing "Up" in <code>docker ps</code>.</p>
+<p>The <code>docker ps</code> output is worth reading carefully. Notice that the backend container shows ports <code>22/tcp, 0.0.0.0:5000-&gt;5000/tcp</code> — port 22 is exposed because the Dockerfile has <code>EXPOSE 22</code> (there's no SSH server in the container, but the port declaration itself is a misconfiguration that signals sloppy practices). The database on <code>0.0.0.0:5432-&gt;5432/tcp</code> means PostgreSQL is accessible from outside the host — a significant security risk in any real deployment.</p>
+<hr />
+<h2 id="testing-the-vulnerable-application">Testing the Vulnerable Application</h2>
+<p>With all containers running, I tested the endpoints.</p>
+<p><img alt="The web application dashboard — health check, user listing, SQL injection, command injection" src="../images/Screenshot_2026-04-21_144624.png" /></p>
+<p>The frontend loaded in the browser — a dark-themed dashboard with buttons for each API endpoint. Notice the red warning text under some fields: "SQL Injection vulnerable endpoint!" and "Command Injection vulnerable endpoint!" These are deliberately labelled for this lab, but in a real application, these vulnerabilities would be silently waiting to be exploited.</p>
+<p><img alt="Lower dashboard — Ping Host with command injection, App Info leaking secrets" src="../images/Screenshot_2026-04-21_144634.png" /></p>
+<p>The Ping Host field accepts arbitrary input and passes it to the system's <code>ping</code> command. An attacker could enter <code>localhost; cat /etc/passwd</code> and the server would execute both commands — the ping AND the <code>cat</code>, returning the contents of the passwd file. This is command injection, and it's one of the most dangerous vulnerability classes because it gives the attacker arbitrary command execution on the server. The App Info section below it warns that it "Leaks API key and internal config!"</p>
+<p><img alt="User data returned from the API — full stack working" src="../images/Screenshot_2026-04-21_144719.png" /></p>
+<p>The <code>/api/users</code> endpoint returns user data from the database — admin, lincoln, and developer accounts with their email addresses. This confirms the full stack is working: nginx proxies the request to Flask, Flask queries PostgreSQL, and the JSON response comes back through the chain.</p>
+<p><img alt="API info endpoint leaking API key, database host, and debug mode" src="../images/Screenshot_2026-04-21_144737.png" /></p>
+<p>Here's the damaging one. The <code>/api/info</code> endpoint returns the API key in its response: <code>sk-proj-abc123def456ghi789jkl012mno345pqr678stu901vwx234</code>. It also exposes the internal database hostname (<code>db</code>) and confirms debug mode is enabled. In production, this endpoint would be handing attackers the keys to whatever service that API key authenticates to.</p>
+<p><img alt="API key leak confirmed via curl — same secrets visible from command line" src="../images/apikey.png" /></p>
+<p>The same leak confirmed from the command line with <code>curl http://localhost/api/info</code>. The API key, database host, and debug mode flag are all visible in the JSON response to anyone who can reach this endpoint. This demonstrates that the vulnerability isn't just visible in the browser — any automated scanner or attacker with network access can extract these secrets programmatically.</p>
+<hr />
+<h2 id="scanning-with-trivy-finding-everything-wrong">Scanning with Trivy — Finding Everything Wrong</h2>
+<p>This is where it gets interesting. Time to point Trivy at our deliberately broken application and see what it finds.</p>
+<h3 id="image-vulnerability-scan">Image Vulnerability Scan</h3>
+<p><img alt="Trivy scanning the backend image — kernel CVEs with affected and fixed status" src="../images/Screenshot_2026-04-21_145111.png" /></p>
+<p>The first scan targeted the backend Docker image for OS-level vulnerabilities. Trivy immediately found multiple kernel-related CVEs — CVE-2026-23243 (denial of service and memory corruption), CVE-2026-23268 (unprivileged local user policy management issue, with a fix available in kernel 6.12.74-2), and CVE-2026-23270 (use-after-free in traffic control). These are in the base <code>python:3.9</code> image because it ships with an older kernel and system libraries.</p>
+<p>Notice the "affected" vs "fixed" status. CVE-2026-23268 shows "fixed" with a specific version — meaning upgrading the base image or the specific package would remediate it. CVE-2026-23243 and CVE-2026-23270 show "affected" with no fix version yet — these would need compensating controls until a patch is available.</p>
+<h3 id="dependency-vulnerability-scan">Dependency Vulnerability Scan</h3>
+<p><img alt="urllib3 CVEs and wheel privilege escalation — vulnerable Python packages" src="../images/Screenshot_2026-04-21_145155.png" /></p>
+<p>Trivy dug into the Python dependencies and found a collection of CVEs in <code>urllib3</code> — our deliberately old version 1.26.5 has multiple known vulnerabilities: cookie leaking on cross-origin redirects (CVE-2023-43804), request body not stripped on redirects (CVE-2023-45803), unbounded decompression chains leading to resource exhaustion (CVE-2025-66418), decompression bomb safeguard bypass (CVE-2026-21441), and more. The <code>wheel</code> package also flagged with a HIGH severity CVE-2026-24049 for privilege escalation or arbitrary code execution via malicious wheel files.</p>
+<p>Each finding shows the installed version, the fixed version, and a link to the advisory on aquasec.com. This is exactly the data you'd use to update <code>requirements.txt</code> with patched versions.</p>
+<h3 id="secret-scanning-filesystem">Secret Scanning — Filesystem</h3>
+<p><img alt="Trivy filesystem secret scan — Report Summary showing 2 secrets in credentials.env" src="../images/Screenshot_2026-04-21_145646.png" /></p>
+<p>Running <code>trivy fs --scanners secret .</code> against the project directory found the <code>secrets/credentials.env</code> file immediately. The Report Summary table shows: <code>backend/requirements.txt</code> as a pip target (no secrets found there — just vulnerabilities), and <code>secrets/credentials.env</code> as a text target with 2 secrets detected.</p>
+<p><img alt="Secrets detail — Slack webhook (MEDIUM), Stripe key (CRITICAL), AWS keys, GitHub token" src="../images/Screenshot_2026-04-21_145659.png" /></p>
+<p>Here's what Trivy flagged: a Slack webhook URL (MEDIUM severity) and a Stripe secret key (CRITICAL severity). It identified them by pattern — Trivy knows what Stripe keys look like (<code>sk_live_...</code>), what Slack webhooks look like (<code>https://hooks.slack.com/services/...</code>), what AWS access keys look like (<code>AKIA...</code>), and what GitHub tokens look like (<code>ghp_...</code>).</p>
+<p>The AWS access key and secret key are both visible in the output at lines 3 and 4. The Stripe key is classified as CRITICAL because it would give an attacker the ability to make charges, issue refunds, and access customer payment data. The Slack webhook is MEDIUM because it would allow sending messages to the channel but not reading them.</p>
+<p>This is exactly what would happen if someone accidentally committed a <code>.env</code> file to a Git repository. Bots scan GitHub for these patterns in real-time — a leaked AWS key can be exploited within minutes of being pushed.</p>
+<hr />
+<h2 id="what-this-lab-demonstrates">What This Lab Demonstrates</h2>
+<p>This project packs a lot of real-world vulnerability patterns into a small, scannable application:</p>
+<p><strong>Infrastructure vulnerabilities</strong> — old base images with unpatched OS packages, old Python dependencies with known CVEs, unnecessary system tools installed (curl, wget, vim, telnet expanding the attack surface).</p>
+<p><strong>Secrets management failures</strong> — hardcoded credentials in source code, secrets stored as Dockerfile ENV variables (persisted in image layers forever), plain text passwords in docker-compose.yml, credential files sitting in the project directory.</p>
+<p><strong>Configuration weaknesses</strong> — running as root, no health checks, debug mode enabled, database port exposed to the host, no network isolation between services, no resource limits, no security options.</p>
+<p><strong>Application vulnerabilities</strong> — SQL injection via string concatenation, command injection via unsanitised shell input, SSRF via unrestricted URL fetching, information leakage via the info endpoint.</p>
+<p>Trivy caught the infrastructure vulnerabilities, the secrets, and the configuration issues automatically. The application-level vulnerabilities (SQL injection, command injection) would be caught by SAST tools like Semgrep or DAST tools like Burp Suite — different tools for different layers of the security stack.</p>
+<p>The next step would be building the secure version — switching to a minimal base image, updating all dependencies, removing hardcoded secrets in favour of Docker secrets, adding non-root users, network isolation, resource limits, and fixing the application vulnerabilities with parameterised queries and input validation. But that's a post for another day.</p>
+<p>For now, this lab gave me hands-on experience with every stage of container security: building, running, scanning, and understanding exactly what Trivy catches and why it matters.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Inode/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Inode in Linux">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Inode in Linux
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../IT%20Support/Active%20Directory/" class="md-footer__link md-footer__link--next" aria-label="Next: Active Directory">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Active Directory
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/lincoln5702" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M202.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M496 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/lincoln-basnet-010426206/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "navigation.path", "navigation.indexes", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
